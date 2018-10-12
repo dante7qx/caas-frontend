@@ -1,0 +1,38 @@
+import java.util.*;
+import java.text.SimpleDateFormat;
+def today()
+{
+    String str = "";
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+    Calendar lastDate = Calendar.getInstance();
+    lastDate.add(Calendar.MINUTE, 2);
+    str = sdf.format(lastDate.getTime());
+    return str;
+}
+def  imageTag = today()
+node {
+  stage('拉取源码') {
+    checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'dante-github', url: 'https://github.com/dante7qx/caas-frontend.git']]])
+  }
+  stage('NPM打包') {
+    sh "cnpm install"
+    sh "npm run build"
+  }
+  stage('确认部署') {
+    timeout(10) {
+      input '确认部署吗？'
+    }
+  }
+  stage('构建Image') {
+    dir('deploy') {
+      sh "docker build -t xxxxxx:$imageTag ."
+    }
+  }
+  stage('推送Harbor') {
+
+  }
+  stage('清理空间') {
+    // sh "docker rmi -f xxxxxx:$imageTag"
+    cleanWs notFailBuild: true
+  }
+}
