@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-      <h1>欢迎来到 Element UI 体验中心</h1>
+      <h1>欢迎来到 CaaS 前端演示</h1>
       <div v-html="info"></div>
   </div>
   
