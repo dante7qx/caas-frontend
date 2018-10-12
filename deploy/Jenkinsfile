@@ -17,6 +17,7 @@ node {
   stage('NPM打包') {
     sh "cnpm install"
     sh "npm run build"
+    sh "cp -Rf dist deploy/"
   }
   stage('确认部署') {
     timeout(10) {
