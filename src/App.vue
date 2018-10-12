@@ -42,7 +42,7 @@ export default {
   name: 'app',
   data () {
     return {
-      msg: '欢迎来到CaaS 前端演示 !',
+      msg: '欢迎来到CaaS 前端演示',
       activeIndex: '1',
       activeIndex2: '/home'
       
