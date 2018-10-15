@@ -10,6 +10,10 @@ def today()
     return str;
 }
 def  imageTag = today()
+def harbor = "harbor.xiaohehe.com"
+def penv = "spiritprd"
+def imgName = "x-frontend";
+def image = "$harbor/$penv/$imgName:imageTag"
 node {
   stage('拉取源码') {
     checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'dante-github', url: 'https://github.com/dante7qx/caas-frontend.git']]])
@@ -26,14 +30,17 @@ node {
   }
   stage('构建Image') {
     dir('deploy') {
-      sh "docker build -t xxxxxx:$imageTag ."
+      sh "docker build -t $image ."
     }
   }
   stage('推送Harbor') {
-
+    withCredentials([usernamePassword(credentialsId: 'xiaohehe_harbor', passwordVariable: 'usrpwd', usernameVariable: 'usrname')]) {
+	    sh "docker login $harbor -u ${usrname} -p ${usrpwd}"
+   	 	sh "docker push $image"
+	  }
   }
   stage('清理空间') {
-    // sh "docker rmi -f xxxxxx:$imageTag"
+    sh "docker rmi -f $image"
     cleanWs notFailBuild: true
   }
 }
