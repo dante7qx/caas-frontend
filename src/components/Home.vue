@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-      <h1>欢迎来到 CaaS 前端演示</h1>
+      <h1>欢迎来到 CaaS 容器云</h1>
       <div v-html="info"></div>
   </div>
   
