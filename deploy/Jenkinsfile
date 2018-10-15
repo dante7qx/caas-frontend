@@ -13,7 +13,7 @@ def  imageTag = today()
 def harbor = "harbor.xiaohehe.com"
 def penv = "spiritprd"
 def imgName = "x-frontend";
-def image = "$harbor/$penv/$imgName:imageTag"
+def image = "$harbor/$penv/$imgName:$imageTag"
 node {
   stage('拉取源码') {
     checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'dante-github', url: 'https://github.com/dante7qx/caas-frontend.git']]])
