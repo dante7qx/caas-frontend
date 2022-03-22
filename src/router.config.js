@@ -7,6 +7,7 @@ import Date from './components/Date.vue'
 import Table from './components/Table.vue'
 import Tree from './components/Tree.vue'
 import Dialog from './components/Dialog.vue'
+import SmallTest from './components/SmallTest.vue'
 
 // 定义路由
 export default {
@@ -20,5 +21,6 @@ export default {
         { path: "/tree", component: Tree },
         { path: "/date", component: Date },
         { path: "/dialog", component: Dialog },
+        { path: "/smalltest", component: SmallTest }
     ]
 }

@@ -14,9 +14,10 @@
       <el-table 
         ref="tableList"
         :data="datas" 
+        row-key="id"
         :stripe="table.stripe"
         :border="table.border"
-        style="width: 100%"
+        style="width: 100%; margin-bottom: 20px;"
         :max-height="tableHeight"
         :highlight-current-row="true"
         tooltip-effect="dark"
@@ -61,7 +62,7 @@
         <el-pagination
             background
             layout="prev, pager, next"
-            :total="1000">
+            :total="100">
         </el-pagination>
       </div>
   </div>
@@ -77,47 +78,47 @@ export default {
               stripe: false,
               border: false,
               showSummary: true,
-              height: 345
+              height: 500
           },
           datas: [
               {
-                  name: "但丁12345678901234567890", age: 33, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
+                  id: 1, name: "但丁12345678901234567890", age: 33, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
                   num1: 32.22, num2: 43.22, num3: 876
               },
               {   
-                  name: "但丁2", age: 32, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
+                  id: 2, name: "但丁2", age: 32, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
                   num1: 32.22, num2: 43.22, num3: 876
               },
               {
-                  name: "但丁3", age: 31, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
+                  id: 3, name: "但丁3", age: 31, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
                   num1: 32.22, num2: 43.22, num3: 876
               },
               {
-                  name: "但丁4", age: 30, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
+                  id: 4, name: "但丁4", age: 30, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
                   num1: 32.22, num2: 43.22, num3: 876
               },
               {
-                  name: "但丁5", age: 29, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
+                  id: 6, name: "但丁5", age: 29, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
                   num1: 32.22, num2: 43.22, num3: 876
               },
               {
-                  name: "但丁6", age: 28, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
+                  id: 7, name: "但丁6", age: 28, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
                   num1: 32.22, num2: 43.22, num3: 876
               },
               {
-                  name: "但丁7", age: 27, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
+                  id: 8, name: "但丁7", age: 27, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
                   num1: 32.22, num2: 43.22, num3: 876
               },
               {
-                  name: "但丁8", age: 26, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
+                  id: 9, name: "但丁8", age: 26, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
                   num1: 32.22, num2: 43.22, num3: 876
               },
               {
-                  name: "但丁9", age: 25, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
+                  id: 10, name: "但丁9", age: 25, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
                   num1: 32.22, num2: 43.22, num3: 876
               },
               {
-                  name: "但丁10", age: 24, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
+                  id: 11, name: "但丁10", age: 24, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
                   num1: 32.22, num2: 43.22, num3: 876
               }
           ],

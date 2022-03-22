@@ -26,6 +26,7 @@
       </el-submenu>
       <el-menu-item index="/table">表格</el-menu-item>
       <el-menu-item index="/tree">树</el-menu-item>
+      <el-menu-item index="/smalltest">小功能测试</el-menu-item>
     </el-menu>
     <!--
     <keep-alive>
@@ -66,7 +67,7 @@ export default {
     text-align: center;
   }
   .main {
-    height: 610px;
+    height: 1010px;
     overflow-x: hidden;
     overflow-y: auto;
   }
