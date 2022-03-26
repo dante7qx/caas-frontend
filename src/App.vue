@@ -24,8 +24,13 @@
           <el-menu-item index="2-4-3">选项3</el-menu-item>
         </el-submenu>
       </el-submenu>
-      <el-menu-item index="/table">表格</el-menu-item>
+      <el-submenu index="4">
+        <template slot="title">表格</template>
+        <el-menu-item index="/table">el-ui 表格</el-menu-item>
+        <el-menu-item index="/tableform">表格表单</el-menu-item>
+      </el-submenu>
       <el-menu-item index="/tree">树</el-menu-item>
+      <el-menu-item index="/transfer">穿梭框</el-menu-item>
       <el-menu-item index="/smalltest">小功能测试</el-menu-item>
     </el-menu>
     <!--
@@ -70,5 +75,16 @@ export default {
     height: 1010px;
     overflow-x: hidden;
     overflow-y: auto;
+  }
+  .app-container {
+    margin: 15px;
+  }
+  .dialog-footer {
+    text-align: right;
+  }
+.el-form .el-form-item__content .el-input.is-disabled .el-input__inner {
+    border: 0;
+    background-color:white;
+    color: #606266;
   }
 </style>

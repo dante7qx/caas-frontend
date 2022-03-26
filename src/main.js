@@ -2,8 +2,12 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import { v4 as uuidv4 } from 'uuid'
 import App from './App.vue'
 import VueRouterConfig from './router.config'
+
+// 全局方法挂载
+Vue.prototype.uuid = uuidv4
 
 Vue.use(VueRouter)
 Vue.use(ElementUI)
