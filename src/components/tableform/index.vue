@@ -107,7 +107,11 @@
     },
     methods: {
       handleDetail(row, editable = 1) {
-        this.title = "表格表单详情";
+        if(editable === 1) {
+          this.title = "修改表格表单";
+        } else {
+          this.title = "查看表格表单";
+        }
         this.open = true;
         this.tableRowData = Object.assign({}, row !== null ? row: {});
         this.tableRowData.editable = editable;
