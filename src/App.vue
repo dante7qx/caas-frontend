@@ -17,6 +17,7 @@
         <el-menu-item index="/button">按钮</el-menu-item>
         <el-menu-item index="/form">表单</el-menu-item>
         <el-menu-item index="/date">日期控件</el-menu-item>
+        <el-menu-item index="/upload">上传</el-menu-item>
         <el-submenu index="2-4">
           <template slot="title">窗口</template>
           <el-menu-item index="/dialog">对话框</el-menu-item>

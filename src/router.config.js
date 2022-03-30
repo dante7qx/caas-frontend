@@ -10,6 +10,7 @@ import Dialog from './components/Dialog.vue'
 import SmallTest from './components/SmallTest.vue'
 import Transfer from './components/Transfer.vue'
 import TableForm from './components/tableform/index'
+import Upload from './components/Upload.vue'
 
 // 定义路由
 export default {
@@ -25,7 +26,7 @@ export default {
         { path: "/dialog", component: Dialog },
         { path: "/smalltest", component: SmallTest },
         { path: "/transfer", component: Transfer },
-
-        { path: "/tableform", component: TableForm }
+        { path: "/tableform", component: TableForm },
+        { path: "/upload", component: Upload },
     ]
 }
