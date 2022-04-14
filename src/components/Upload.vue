@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <h3 @click="xx">照片墙1</h3>
+    <h3>照片墙1</h3>
 		<el-upload
       ref="picTypeUpload"
       action="https://jsonplaceholder.typicode.com/posts/"
@@ -10,7 +10,7 @@
       >
       <i class="el-icon-plus"></i>
     </el-upload>
-    <h3 @click="xx">照片墙2</h3>
+    <h3>照片墙2</h3>
 		<el-upload
       ref="picTypeUpload"
       action="https://jsonplaceholder.typicode.com/posts/"
