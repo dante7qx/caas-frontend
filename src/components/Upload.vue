@@ -2,7 +2,7 @@
   <div class="app-container">
     <h3>照片墙1</h3>
 		<el-upload
-      ref="picTypeUpload"
+      ref="picTypeUpload1"
       action="https://jsonplaceholder.typicode.com/posts/"
       list-type="picture-card"
       :on-preview="handlePictureCardPreview"
@@ -12,7 +12,7 @@
     </el-upload>
     <h3>照片墙2</h3>
 		<el-upload
-      ref="picTypeUpload"
+      ref="picTypeUpload2"
       action="https://jsonplaceholder.typicode.com/posts/"
       list-type="picture-card"
       :on-preview="handlePictureCardPreview"
@@ -24,7 +24,8 @@
       <img :src="dialogImageUrl" alt="" style="width: 400px; height: 400px;" />
     </el-dialog>
     <el-row style="margin-top: 10px;">
-      <el-button type="primary" @click="hideUploadBtn(true)">隐藏</el-button>
+      <el-button type="primary" @click="hideUploadBtn(true)">隐藏 class</el-button>
+      <el-button type="primary" @click="hideUploadBtn2(true)">隐藏 refs</el-button>
       <el-button type="success" @click="hideUploadBtn(false)">显示</el-button>
     </el-row>
 	</div>
@@ -35,13 +36,13 @@
 		data() {
 			return {
         dialogImageUrl: '',
-        dialogVisible: false
+        dialogVisible: false,
       };
 		},
 		created() {
 		},
     mounted() {
-      // this.hideUploadBtn()
+      this.hideUploadBtn()
     },
 		methods: {
 			handlePictureCardPreview(file) {
@@ -56,6 +57,11 @@
           } else {
             el.style.cssText = "display: '';";
           }
+        })
+      },
+      hideUploadBtn2(hide) {
+        [1, 2].forEach(item => {
+          this.$refs['picTypeUpload' + item].$el.querySelectorAll('div[tabindex="0"]')[0].style.cssText = "display: "+(hide ? "none" : "")+";"
         })
       }
 		}

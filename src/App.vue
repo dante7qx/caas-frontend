@@ -32,6 +32,7 @@
       </el-submenu>
       <el-menu-item index="/tree">树</el-menu-item>
       <el-menu-item index="/transfer">穿梭框</el-menu-item>
+      <el-menu-item index="/calendar">日历</el-menu-item>
       <el-menu-item index="/smalltest">小功能测试</el-menu-item>
     </el-menu>
     <!--

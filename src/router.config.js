@@ -11,6 +11,7 @@ import SmallTest from './components/SmallTest.vue'
 import Transfer from './components/Transfer.vue'
 import TableForm from './components/tableform/index'
 import Upload from './components/Upload.vue'
+import Calendar from './components/Calendar.vue'
 
 // 定义路由
 export default {
@@ -28,5 +29,6 @@ export default {
         { path: "/transfer", component: Transfer },
         { path: "/tableform", component: TableForm },
         { path: "/upload", component: Upload },
+        { path: "/calendar", component: Calendar },
     ]
 }
