@@ -20,6 +20,28 @@
 			</el-date-picker>
 		</div>
 		<div class="block">
+			<span class="demonstration">上午、下午</span>
+			<el-date-picker
+				v-model="value3"
+				type="date"
+				placeholder="开始时间">
+			</el-date-picker>
+			<el-select v-model="startRange" placeholder="请选择" style="width: 90px;">
+				<el-option label="上午" value="1"/>
+				<el-option label="下午" value="2"/>
+			</el-select>
+			<span>~</span>
+			<el-date-picker
+				v-model="value3"
+				type="date"
+				placeholder="结束时间">
+			</el-date-picker>
+			<el-select v-model="endRange" placeholder="请选择" style="width: 90px;">
+				<el-option label="上午" value="1"/>
+				<el-option label="下午" value="2"/>
+			</el-select>
+		</div>
+		<div class="block">
 			<span class="demonstration" @click="showValue2">月份</span>
 			<el-date-picker
 				v-model="value2"
@@ -38,6 +60,9 @@ export default {
 		return {
 			value1: '',
 			value2: '',
+			value3: '',
+			startRange: '', 
+			endRange: '', 
 			daterange: [new Date(), new Date(new Date() + 3600 * 1000 * 24 * 7)],
 			pickerOptions1: {
 				disabledDate(curTime) {
@@ -64,7 +89,7 @@ export default {
 							picker.$emit('pick', date);
 						}
 					}
-				]
+				],
 			},
 			pickerOptions2: {
 				disabledDate(curTime) {
