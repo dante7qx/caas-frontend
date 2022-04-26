@@ -56,17 +56,17 @@
 <script>
 export default {
   data() {
-      return {
-          icoButton: '图标按钮',
-          enable: true
-      }
+    return {
+        icoButton: '图标按钮',
+        enable: true
+    }
   }
 }
 </script>
 
 <style scoped>
 div {
-    margin: 15px;
+  margin: 15px;
 }
 </style>
 

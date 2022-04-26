@@ -12,23 +12,25 @@ import Transfer from './components/Transfer.vue'
 import TableForm from './components/tableform/index'
 import Upload from './components/Upload.vue'
 import Calendar from './components/Calendar.vue'
+import Esign from './components/third/Esign.vue'
 
 // 定义路由
 export default {
-    routes: [
-        { path: "/home", component: Home },
-        { path: "/layout", component: Layout },
-        { path: "/container", component: Container },
-        { path: "/button", component: Button },
-        { path: "/form", component: Form },
-        { path: "/table", component: Table },
-        { path: "/tree", component: Tree },
-        { path: "/date", component: Date },
-        { path: "/dialog", component: Dialog },
-        { path: "/smalltest", component: SmallTest },
-        { path: "/transfer", component: Transfer },
-        { path: "/tableform", component: TableForm },
-        { path: "/upload", component: Upload },
-        { path: "/calendar", component: Calendar },
-    ]
+	routes: [
+    { path: "/home", component: Home },
+    { path: "/layout", component: Layout },
+    { path: "/container", component: Container },
+    { path: "/button", component: Button },
+    { path: "/form", component: Form },
+    { path: "/table", component: Table },
+    { path: "/tree", component: Tree },
+    { path: "/date", component: Date },
+    { path: "/dialog", component: Dialog },
+    { path: "/smalltest", component: SmallTest },
+    { path: "/transfer", component: Transfer },
+    { path: "/tableform", component: TableForm },
+    { path: "/upload", component: Upload },
+    { path: "/calendar", component: Calendar },
+		{ path: "/esign", component: Esign },
+	]
 }

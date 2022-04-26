@@ -34,6 +34,10 @@
       <el-menu-item index="/transfer">穿梭框</el-menu-item>
       <el-menu-item index="/calendar">日历</el-menu-item>
       <el-menu-item index="/smalltest">小功能测试</el-menu-item>
+      <el-submenu index="5">
+        <template slot="title">第三方组件</template>
+        <el-menu-item index="/esign">在线签名</el-menu-item>
+      </el-submenu>
     </el-menu>
     <!--
     <keep-alive>
