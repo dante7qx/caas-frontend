@@ -12,7 +12,7 @@
 		</div>
 		<el-tooltip placement="top">
 			<div slot="content">多行信息<br/>第二行信息</div>
-			<h2>步骤条</h2>
+			<h2 style="width: 130px;">步骤条</h2>
 		</el-tooltip>
 		<el-steps :active="1" simple>
 			<el-step title="步骤 1" icon="el-icon-edit"></el-step>
@@ -24,6 +24,17 @@
 			<el-step title="步骤 2" ></el-step>
 			<el-step title="步骤 3" ></el-step>
 		</el-steps>
+		<h2>走马灯</h2>
+		<el-carousel :interval="4000" type="card" height="200px">
+			<el-carousel-item v-for="item in 6" :key="item">
+				<h3 class="medium">{{ item }}</h3>
+			</el-carousel-item>
+		</el-carousel>
+		<h2>InfiniteScroll 无限滚动</h2>
+		<ul class="infinite-list" v-infinite-scroll="infiniteScrollLoad" style="height: 280px; overflow:auto">
+			<li :key="i" v-for="i in count" class="infinite-list-item">{{ i }}</li>
+		</ul>
+	<div style="height: 100px;"></div>
 	</div>
 </template>
 <script>
@@ -32,6 +43,7 @@ export default {
 	name: "OtherWiget",
   data() {
 		return {
+			count: 0
 		}
   },
 	methods: {
@@ -83,6 +95,9 @@ export default {
 			setTimeout(() => {
 				loading.close();
 			}, 2000);
+		},
+		infiniteScrollLoad() {
+			this.count += 2
 		}
 	}
 }
@@ -91,5 +106,20 @@ export default {
 <style scoped>
 div {
 	margin: 15px;
+}
+.el-carousel__item h3 {
+	color: #475669;
+	font-size: 14px;
+	opacity: 0.75;
+	line-height: 200px;
+	margin: 0;
+}
+
+.el-carousel__item:nth-child(2n) {
+	background-color: #99a9bf;
+}
+
+.el-carousel__item:nth-child(2n+1) {
+	background-color: #d3dce6;
 }
 </style>
