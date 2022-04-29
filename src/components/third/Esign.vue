@@ -5,6 +5,7 @@
 			<vue-esign ref="esign" :width="800" :height="300" :isCrop="isCrop" :lineWidth="lineWidth" :lineColor="lineColor" :bgColor.sync="bgColor" style="border: 1px solid #000000;"/>
 			<button @click="handleReset">清空画板</button> 
 			<button @click="handleGenerate">生成图片</button>
+			<el-input type="textarea" :autosize="{ minRows: 6, maxRows: 10}" v-model="resultImg" />
     </div>
 	</div>
 </template>
@@ -20,7 +21,7 @@ export default {
 			lineColor: '#000000',
 			bgColor: '',
 			resultImg: '',
-			isCrop: false
+			isCrop: false,
 		}
   },
 	methods: {
@@ -30,7 +31,6 @@ export default {
 		handleGenerate () {
 			this.$refs.esign.generate().then(res => {
 				this.resultImg = res
-				console.log(this.resultImg)
 			}).catch(err => {
 				alert(err) // 画布没有签字时会执行这里 'Not Signned'
 			})

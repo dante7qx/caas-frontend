@@ -12,6 +12,7 @@ import Transfer from './components/Transfer.vue'
 import TableForm from './components/tableform/index'
 import Upload from './components/Upload.vue'
 import Calendar from './components/Calendar.vue'
+import OtherComponent from './components/OtherComponent.vue'
 import Esign from './components/third/Esign.vue'
 
 // 定义路由
@@ -31,6 +32,7 @@ export default {
     { path: "/tableform", component: TableForm },
     { path: "/upload", component: Upload },
     { path: "/calendar", component: Calendar },
+    { path: "/otherwiget", component: OtherComponent },
 		{ path: "/esign", component: Esign },
 	]
 }
