@@ -3,11 +3,15 @@ import VueRouter from 'vue-router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import { v4 as uuidv4 } from 'uuid'
+import moment from 'moment'
 import App from './App.vue'
 import VueRouterConfig from './router.config'
 
+moment.locale('zh-cn');
+
 // 全局方法挂载
 Vue.prototype.uuid = uuidv4
+Vue.prototype.$moment = moment
 
 Vue.use(VueRouter)
 Vue.use(ElementUI)

@@ -1,19 +1,20 @@
-import Home from './components/Home.vue'
-import Layout from './components/Layout.vue'
-import Container from './components/Container.vue'
-import Button from './components/Button.vue'
-import Form from './components/Form.vue'
-import Date from './components/Date.vue'
-import Table from './components/Table.vue'
-import Tree from './components/Tree.vue'
-import Dialog from './components/Dialog.vue'
-import SmallTest from './components/SmallTest.vue'
-import Transfer from './components/Transfer.vue'
+import Home from './components/Home'
+import Layout from './components/Layout'
+import Container from './components/Container'
+import Button from './components/Button'
+import Form from './components/Form'
+import Date from './components/Date'
+import Table from './components/Table'
+import Tree from './components/Tree'
+import Dialog from './components/Dialog'
+import SmallTest from './components/SmallTest'
+import Transfer from './components/Transfer'
 import TableForm from './components/tableform/index'
-import Upload from './components/Upload.vue'
-import Calendar from './components/Calendar.vue'
-import OtherComponent from './components/OtherComponent.vue'
-import Esign from './components/third/Esign.vue'
+import Upload from './components/Upload'
+import Calendar from './components/Calendar'
+import OtherComponent from './components/OtherComponent'
+import Esign from './components/third/Esign'
+import HolidayPane from './components/third/Holiday'
 
 // 定义路由
 export default {
@@ -34,5 +35,6 @@ export default {
     { path: "/calendar", component: Calendar },
     { path: "/otherwiget", component: OtherComponent },
 		{ path: "/esign", component: Esign },
+    { path: "/holidaypane", component: HolidayPane },
 	]
 }
