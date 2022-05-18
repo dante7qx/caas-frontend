@@ -4,6 +4,7 @@ import Container from './components/Container'
 import Button from './components/Button'
 import Form from './components/Form'
 import Date from './components/Date'
+import Cascade from './components/Cascade'
 import Table from './components/Table'
 import Tree from './components/Tree'
 import Dialog from './components/Dialog'
@@ -27,6 +28,7 @@ export default {
     { path: "/table", component: Table },
     { path: "/tree", component: Tree },
     { path: "/date", component: Date },
+    { path: "/cascade", component: Cascade },
     { path: "/dialog", component: Dialog },
     { path: "/smalltest", component: SmallTest },
     { path: "/transfer", component: Transfer },
