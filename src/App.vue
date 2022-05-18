@@ -14,8 +14,8 @@
       <el-menu-item index="/container">Container</el-menu-item>
       <el-submenu index="3">
         <template slot="title">表单</template>
+        <el-menu-item index="/dynacomponent">动态组件</el-menu-item>
         <el-menu-item index="/button">按钮</el-menu-item>
-        <el-menu-item index="/form">表单</el-menu-item>
         <el-menu-item index="/date">日期控件</el-menu-item>
         <el-menu-item index="/upload">上传</el-menu-item>
         <el-menu-item index="/cascade">级联选择</el-menu-item>

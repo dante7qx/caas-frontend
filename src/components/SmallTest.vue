@@ -6,7 +6,7 @@
         @click="goAnchor('#anchor-'+index), index"> 
         <a href="javascript:void(0);">{{index}}</a>
     </div>  
-    <div :id="'anchor-'+index" class="item" :key="index" v-for="index in 20">{{index}}</div> 
+    <div :id="'anchor_'+index" class="item" :key="'anchor_'+index" v-for="index in 20">{{index}}</div> 
   </div>
 </template>
 

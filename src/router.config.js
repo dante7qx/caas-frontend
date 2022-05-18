@@ -1,17 +1,18 @@
 import Home from './components/Home'
 import Layout from './components/Layout'
 import Container from './components/Container'
-import Button from './components/Button'
-import Form from './components/Form'
-import Date from './components/Date'
-import Cascade from './components/Cascade'
+import Button from './components/form/Button'
+import DynaComponent from './components/form/DynaComponent'
+import Date from './components/form/Date'
+import Cascade from './components/form/Cascade'
+import Upload from './components/form/Upload'
+import Dialog from './components/form/Dialog'
 import Table from './components/Table'
 import Tree from './components/Tree'
-import Dialog from './components/Dialog'
 import SmallTest from './components/SmallTest'
 import Transfer from './components/Transfer'
 import TableForm from './components/tableform/index'
-import Upload from './components/Upload'
+
 import Calendar from './components/Calendar'
 import OtherComponent from './components/OtherComponent'
 import Esign from './components/third/Esign'
@@ -24,7 +25,7 @@ export default {
     { path: "/layout", component: Layout },
     { path: "/container", component: Container },
     { path: "/button", component: Button },
-    { path: "/form", component: Form },
+    { path: "/dynacomponent", component: DynaComponent },
     { path: "/table", component: Table },
     { path: "/tree", component: Tree },
     { path: "/date", component: Date },
