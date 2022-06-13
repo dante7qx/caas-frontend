@@ -2,12 +2,30 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>CaaS 前端演示</title>
+	<meta charset="utf-8">
+	<title>CaaS 前端演示</title>
+	<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+	<script type="text/javascript">
+		var userCurrentIP = returnCitySN['cip']
+		fetch('https://restapi.amap.com/v3/ip?key=0113a13c88697dcea6a445584d535837', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({ip: userCurrentIP}),
+			})
+			.then(response => response.json())
+			.then(data => {
+				if(data.info === 'OK') {
+					data.ip = userCurrentIP
+					localStorage.setItem('UserIPPosition', JSON.stringify(data))
+				}
+			});
+	</script>
 </head>
 
 <body>
-    <div id="app"></div>
+	<div id="app"></div>
 </body>
 
 </html>
