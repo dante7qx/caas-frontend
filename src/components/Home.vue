@@ -11,8 +11,8 @@ import info from '../assets/info.txt'
 export default {
 	data() {
 		return {
-				info,
-				ipPosition: {}
+			info,
+			ipPosition: {}
 		}
 	},
 	mounted() {

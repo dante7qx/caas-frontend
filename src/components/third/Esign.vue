@@ -1,6 +1,7 @@
 <template>
   <div>
     <h2>在线签名 - https://github.com/JaimeCheng/vue-esign</h2>
+		<h4 :style="styleObject" @click="changeColor">随机码：{{ randomCode }}</h4>
     <div>
 			<vue-esign ref="esign" :width="800" :height="300" :isCrop="isCrop" :lineWidth="lineWidth" :lineColor="lineColor" :bgColor.sync="bgColor" style="border: 1px solid #000000;"/>
 			<button @click="handleReset">清空画板</button> 
@@ -11,6 +12,7 @@
 </template>
 <script>
 import vueEsign from 'vue-esign'
+import { nanoid } from 'nanoid'
 
 export default {
 	name: "esign",
@@ -22,8 +24,16 @@ export default {
 			bgColor: '',
 			resultImg: '',
 			isCrop: false,
+			styleObject: {
+				color: 'green',
+			}
 		}
   },
+	computed: { 
+		randomCode() {
+			return `nanoId: ${nanoid()}  uuid: ${this.uuid()}`
+		},
+	},
 	methods: {
 		handleReset () {
 			this.$refs.esign.reset()
@@ -34,6 +44,9 @@ export default {
 			}).catch(err => {
 				alert(err) // 画布没有签字时会执行这里 'Not Signned'
 			})
+		},
+		changeColor() {
+			this.styleObject.color = this.$randomColor();
 		}
 	}
 }

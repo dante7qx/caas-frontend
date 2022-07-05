@@ -4,6 +4,7 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import { v4 as uuidv4 } from 'uuid'
 import moment from 'moment'
+import VueRandomColor from 'vue-randomcolor'
 import App from './App.vue'
 import VueRouterConfig from './router.config'
 
@@ -15,6 +16,7 @@ Vue.prototype.$moment = moment
 
 Vue.use(VueRouter)
 Vue.use(ElementUI)
+Vue.use(VueRandomColor)
 
 // 创建路由实例
 const routerConfig = new VueRouter(VueRouterConfig)
