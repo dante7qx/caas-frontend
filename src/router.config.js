@@ -17,6 +17,8 @@ import Calendar from './components/Calendar'
 import OtherComponent from './components/OtherComponent'
 import Esign from './components/third/Esign'
 import HolidayPane from './components/third/Holiday'
+import WaterBottom from './components/third/WaterBottom'
+import JSEncrypt from './components/third/JSEncrypt'
 
 // 定义路由
 export default {
@@ -39,5 +41,7 @@ export default {
     { path: "/otherwiget", component: OtherComponent },
 		{ path: "/esign", component: Esign },
     { path: "/holidaypane", component: HolidayPane },
+    { path: "/waterbottom", component: WaterBottom },
+    { path: "/jsenc", component: JSEncrypt },
 	]
 }

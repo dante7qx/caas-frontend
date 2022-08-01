@@ -40,6 +40,8 @@
         <template slot="title">第三方组件</template>
         <el-menu-item index="/esign">在线签名</el-menu-item>
         <el-menu-item index="/holidaypane">节假日面板</el-menu-item>
+        <el-menu-item index="/waterbottom">页面水印</el-menu-item>
+        <el-menu-item index="/jsenc">非对称加、解密</el-menu-item>
       </el-submenu>
       
     </el-menu>
