@@ -42,6 +42,7 @@
         <el-menu-item index="/holidaypane">节假日面板</el-menu-item>
         <el-menu-item index="/waterbottom">页面水印</el-menu-item>
         <el-menu-item index="/jsenc">非对称加、解密</el-menu-item>
+        <el-menu-item index="/tinymce">TinyMCE富文本</el-menu-item>
       </el-submenu>
       
     </el-menu>

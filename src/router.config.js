@@ -19,6 +19,7 @@ import Esign from './components/third/Esign'
 import HolidayPane from './components/third/Holiday'
 import WaterBottom from './components/third/WaterBottom'
 import JSEncrypt from './components/third/JSEncrypt'
+import Tinymce from './components/third/Tinymce'
 
 // 定义路由
 export default {
@@ -43,5 +44,7 @@ export default {
     { path: "/holidaypane", component: HolidayPane },
     { path: "/waterbottom", component: WaterBottom },
     { path: "/jsenc", component: JSEncrypt },
+    { path: "/tinymce", component: Tinymce },
+
 	]
 }
