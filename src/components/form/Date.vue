@@ -50,6 +50,16 @@
 				placeholder="选择月"
 				:picker-options="pickerOptions2">>
 			</el-date-picker>
+			<span class="demonstration">月份范围</span>
+			<el-date-picker
+				v-model="monthrange"
+				type="monthrange"
+				value-format="yyyy-MM"
+				start-placeholder="开始月"
+				end-placeholder="开始月"
+				:picker-options="pickerOptions3"
+				:default-time="['08:00:00', '08:00:00']">
+			</el-date-picker>
 		</div>
 	</div>
 </template>
@@ -57,6 +67,7 @@
 <script>
 export default {
 	data() {
+		const that = this
 		return {
 			value1: '',
 			value2: '',
@@ -64,6 +75,7 @@ export default {
 			startRange: '', 
 			endRange: '', 
 			daterange: [new Date(), new Date(new Date() + 3600 * 1000 * 24 * 7)],
+			monthrange: [],
 			pickerOptions1: {
 				disabledDate(curTime) {
 					return curTime.getTime() > Date.now();
@@ -95,11 +107,18 @@ export default {
 				disabledDate(curTime) {
 					return curTime.getTime() >= Date.now();
 				}
+			},
+			pickerOptions3: {
+				disabledDate(curTime) {
+					return curTime <= that.$moment(that.$moment().startOf("month").format("YYYY-MM")).toDate();
+					// return curTime <= new Date(that.$moment().startOf("month").format("YYYY-MM-DD HH:mm:ss"))
+				}
 			}	
 		}
 	},
 	created() {
 		this.value2 = this.curMonthDate();
+		console.log(this.$moment().startOf("month").format("YYYY-MM"))
 	},
 	methods: {
 		curMonthDate() {
