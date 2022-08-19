@@ -5,22 +5,22 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
 	entry: './src/main.js',
 	output: {
-			path: path.resolve(__dirname, './dist'),
-			filename: 'build.js'
+		path: path.resolve(__dirname, './dist'),
+		filename: 'build.js'
 	},
 	module: {
 		rules: [{
-					test: /\.css$/,
-					use: [
-							'vue-style-loader',
-							'css-loader'
-					],
+				test: /\.css$/,
+				use: [
+						'vue-style-loader',
+						'css-loader'
+				],
 			}, {
-					test: /\.vue$/,
-					loader: 'vue-loader',
-					options: {
-							loaders: {}
-							// other vue-loader options go here
+				test: /\.vue$/,
+				loader: 'vue-loader',
+				options: {
+						loaders: {}
+						// other vue-loader options go here
 				}
 			},
 			{
@@ -52,7 +52,7 @@ module.exports = {
 	},
 	resolve: {
 		alias: {
-				'vue$': 'vue/dist/vue.esm.js'
+			'vue$': 'vue/dist/vue.esm.js'
 		},
 		extensions: ['*', '.js', '.vue', '.json']
 	},
@@ -67,7 +67,8 @@ module.exports = {
 	devtool: '#eval-source-map',
 	plugins: [
 		new HtmlWebpackPlugin({
-				template: './index.html'
+				template: './index.html',
+				favicon: './favicon.ico'
 		})
 	]
 }
@@ -77,18 +78,18 @@ if (process.env.NODE_ENV === 'production') {
 	// http://vue-loader.vuejs.org/en/workflow/production.html
 	module.exports.plugins = (module.exports.plugins || []).concat([
 		new webpack.DefinePlugin({
-				'process.env': {
-						NODE_ENV: '"production"'
-				}
+			'process.env': {
+					NODE_ENV: '"production"'
+			}
 		}),
 		new webpack.optimize.UglifyJsPlugin({
-				sourceMap: true,
-				compress: {
-						warnings: false
-				}
+			sourceMap: true,
+			compress: {
+					warnings: false
+			}
 		}),
 		new webpack.LoaderOptionsPlugin({
-				minimize: true
+			minimize: true
 		})
 	])
 }
