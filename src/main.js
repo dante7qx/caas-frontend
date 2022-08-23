@@ -24,7 +24,7 @@ Vue.use(vueAwesomeCountdown, 'vac')
 const routerConfig = new VueRouter(VueRouterConfig)
 
 new Vue({
-    el: '#app',
-    router: routerConfig,
-    render: h => h(App)
+	el: '#app',
+	router: routerConfig,
+	render: h => h(App)
 })

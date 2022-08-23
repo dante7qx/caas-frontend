@@ -1,21 +1,33 @@
 <template>
-  <div>
-    <editor
-      :init="{
-        plugins: 'lists link image table code help wordcount'
-      }"
-    />
-    <img alt="Vue logo" src="../../../public/test.png" width="400" height="400"/>
+  <div style="margin: 15px;">
+    <h2>Tinymce 富文本</h2>
+    <ul>
+      <li>https://www.tiny.cloud/docs/plugins/</li>
+      <li>https://www.jianshu.com/p/8dfedddc943f</li>
+    </ul>
+    <!--
+    <img src="../../../public/test.png" width="200" height="200">
+    -->
+    <tinymce-editor
+      v-model="content"
+      ref="editor"
+      >
+    </tinymce-editor>
   </div>
 </template>
 
 <script>
-import Editor from '@tinymce/tinymce-vue'
+import TinymceEditor from './editor'
 
 export default {
-  name: 'Tinymce',
+  name: 'TinymceDemo',
   components: {
-    'editor': Editor
+    'tinymce-editor': TinymceEditor
+  },
+  data() {
+    return {
+      content: null
+    }
   }
 }
 </script>
