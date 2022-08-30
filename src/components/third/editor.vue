@@ -56,11 +56,11 @@ export default {
     },
     minHeight: {
       type: Number,
-      default: 200
+      default: 300
     },
     maxHeight: {
       type: Number,
-      default: 650
+      default: 700
     },
     plugins: {
       type: [String, Array],
