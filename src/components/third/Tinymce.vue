@@ -6,6 +6,7 @@
       <li>https://www.jianshu.com/p/8dfedddc943f</li>
       <li>https://itcn.blog/p/2658501229.html</li>
       <li>https://its201.com/article/qq_42740164/118336792</li>
+      <li><el-button type="primary" plain @click="submit">提 交</el-button></li>
     </ul>
     <!--
     <img src="../../../public/test.png" width="200" height="200">
@@ -29,6 +30,11 @@ export default {
   data() {
     return {
       content: null
+    }
+  },
+  methods: {
+    submit() {
+      console.log(this.content)
     }
   }
 }

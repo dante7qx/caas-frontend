@@ -30,8 +30,8 @@ import 'tinymce/plugins/colorpicker'  //选择颜色插件
 import 'tinymce/plugins/textcolor' //文本颜色插件
 import 'tinymce/plugins/hr' // 水平线
 import 'tinymce/plugins/preview'  // 预览
-import 'tinymce/plugins/fullscreen' //打印
-import 'tinymce/plugins/print'  // 快速工具栏
+import 'tinymce/plugins/fullscreen' // 全屏
+// import 'tinymce/plugins/print'  // 打印
 import 'tinymce/plugins/searchreplace'  // 查找替换
 
 export default {
@@ -59,7 +59,7 @@ export default {
     },
     toolbar: {
       type: [String, Array],
-      default: 'searchreplace styleselect | bold italic underline strikethrough fontselect fontsizeselect forecolor backcolor | alignleft aligncenter alignright alignjustify | hr bullist numlist outdent indent blockquote subscript superscript | removeformat undo redo | image media link openlink table | preview fullscreen print code'
+      default: 'styleselect | bold italic underline strikethrough fontselect fontsizeselect forecolor backcolor | alignleft aligncenter alignright alignjustify | hr bullist numlist outdent indent blockquote subscript superscript | removeformat undo redo | image media link openlink table | searchreplace preview fullscreen code'
     },
     menubar: {
       type: [String, Boolean],
@@ -77,7 +77,7 @@ export default {
       init: {
         placeholder: "在这里输入文字",
         language: 'zh_CN',
-        content_style: 'body { font-family:宋体; font-size:12pt }',
+        content_style: 'body { font-family:微软雅黑; font-size:12pt }',
         protect: [
           /\<\/?(if|endif)\>/g, //<if> & </endif>
           /\<xsl\:[^>]+\>/g, //<xsl:...>
