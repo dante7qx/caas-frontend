@@ -12,11 +12,7 @@
     <!--
     <img src="../../../public/test.png" width="200" height="200">
     -->
-    <tinymce-editor
-      v-model="content"
-      ref="editor"
-      >
-    </tinymce-editor>
+    <tinymce-editor ref="editor" v-model="content" :minHeight="300" :disabled="disabled"/>
   </div>
 </template>
 
@@ -30,7 +26,8 @@ export default {
   },
   data() {
     return {
-      content: null
+      content: null,
+      disabled: false
     }
   },
   methods: {

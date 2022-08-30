@@ -32,6 +32,7 @@ import 'tinymce/plugins/hr' // 水平线
 import 'tinymce/plugins/preview'  // 预览
 import 'tinymce/plugins/fullscreen' // 全屏
 import 'tinymce/plugins/searchreplace'  // 查找替换
+import 'tinymce/plugins/autoresize' // 编辑器大小自适应
 
 export default {
 	name: 'TinymceEditorWidget',
@@ -54,7 +55,7 @@ export default {
     },
     plugins: {
       type: [String, Array],
-      default: 'lists image media table textcolor wordcount link hr searchreplace preview fullscreen code'
+      default: 'lists image media table textcolor wordcount link hr searchreplace autoresize preview fullscreen code'
     },
     toolbar: {
       type: [String, Array],
@@ -65,9 +66,13 @@ export default {
       default: 'file edit insert view format table tools'
       // default: false
     },
-    height: {
+    minHeight: {
       type: Number,
-      default: 700
+      default: 200
+    },
+    maxHeight: {
+      type: Number,
+      default: 650
     }
   },
   data() {
@@ -86,7 +91,9 @@ export default {
           /<\?php.*?\?>/g, //php代码
         ], 
         font_css: '../../../public/tinymce/fonts/fonts.css',
-        height: this.height,
+        min_height: this.minHeight,
+        max_height: this.maxHeight,
+        autoresize_bottom_margin: 50,
         plugins: this.plugins,
         toolbar: this.toolbar,
         // fontsize_formats: '12px 14px 16px 18px 20px 22px 24px 26px 36px 48px 56px', // 工具栏自定义字体大小选项
