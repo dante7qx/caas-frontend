@@ -1,9 +1,4 @@
 @font-face {
-    font-family: '方正小标宋';
-    src: url('./FZXBJW.TTF');
-}
-
-@font-face {
     font-family: '微软雅黑';
     src: url('./微软雅黑.ttf');
 }
@@ -13,3 +8,22 @@
     src: url('./华文楷体.ttf');
 }
 
+@font-face {
+    font-family: '宋体';
+    src: url('./华文中宋.ttf');
+}
+
+@font-face {
+    font-family: '仿宋';
+    src: url('./华文仿宋.ttf');
+}
+
+@font-face {
+    font-family: '黑体';
+    src: url('./simhei.ttf');
+}
+
+@font-face {
+    font-family: '隶书';
+    src: url('./华文隶体.ttf');
+}

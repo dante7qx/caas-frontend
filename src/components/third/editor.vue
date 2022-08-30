@@ -77,7 +77,7 @@ export default {
       init: {
         placeholder: "在这里输入文字",
         language: 'zh_CN',
-        content_style: 'body { font-family:微软雅黑; font-size:14px }',
+        content_style: 'body { font-family:宋体; font-size:12pt }',
         protect: [
           /\<\/?(if|endif)\>/g, //<if> & </endif>
           /\<xsl\:[^>]+\>/g, //<xsl:...>
@@ -89,7 +89,7 @@ export default {
         plugins: this.plugins,
         toolbar: this.toolbar,
         // fontsize_formats: '12px 14px 16px 18px 20px 22px 24px 26px 36px 48px 56px', // 工具栏自定义字体大小选项
-        font_formats: "微软雅黑='微软雅黑';宋体='宋体';黑体='黑体';仿宋='仿宋';楷体='楷体';隶书='隶书';方正小标宋='方正小标宋';Andale Mono=andale mono,times;Arial=arial,helvetica,sans-serif;Arial Black=arial black,avant garde;Book Antiqua=book antiqua,palatino;Comic Sans MS=comic sans ms,sans-serif;Courier New=courier new,courier;Georgia=georgia,palatino;Helvetica=helvetica;Impact=impact,chicago;Symbol=symbol;Tahoma=tahoma,arial,helvetica,sans-serif;Terminal=terminal,monaco;Times New Roman=times new roman,times;Trebuchet MS=trebuchet ms,geneva;Verdana=verdana,geneva;Webdings=webdings;Wingdings=wingdings",
+        font_formats: "宋体='宋体';黑体='黑体';仿宋='仿宋';楷体='楷体';隶书='隶书';微软雅黑='微软雅黑';Andale Mono=andale mono,times;Arial=arial,helvetica,sans-serif;Arial Black=arial black,avant garde;Book Antiqua=book antiqua,palatino;Comic Sans MS=comic sans ms,sans-serif;Courier New=courier new,courier;Georgia=georgia,palatino;Helvetica=helvetica;Impact=impact,chicago;Symbol=symbol;Tahoma=tahoma,arial,helvetica,sans-serif;Terminal=terminal,monaco;Times New Roman=times new roman,times;Trebuchet MS=trebuchet ms,geneva;Verdana=verdana,geneva;Webdings=webdings;Wingdings=wingdings",
         menubar: this.menubar,
         branding: false,
         resize: true,
