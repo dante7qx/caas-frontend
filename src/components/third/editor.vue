@@ -15,8 +15,8 @@ import Editor from '@tinymce/tinymce-vue'
 import 'tinymce/themes/silver/theme'
 import 'tinymce/icons/default/icons'
 // 样式
-import '../../../public/tinymce/skins/ui/oxide/skin.min.css'
-import '../../../public/tinymce/skins/ui/oxide/content.inline.min.css'
+import 'tinymce/skins/ui/oxide/skin.min.css'
+import 'tinymce/skins/ui/oxide/content.inline.min.css'
 import '../../../public/tinymce/langs/zh_CN.js'
 // 插件
 import 'tinymce/plugins/image'  // 插入上传图片插件
@@ -31,7 +31,6 @@ import 'tinymce/plugins/textcolor' //文本颜色插件
 import 'tinymce/plugins/hr' // 水平线
 import 'tinymce/plugins/preview'  // 预览
 import 'tinymce/plugins/fullscreen' // 全屏
-// import 'tinymce/plugins/print'  // 打印
 import 'tinymce/plugins/searchreplace'  // 查找替换
 
 export default {
@@ -55,7 +54,7 @@ export default {
     },
     plugins: {
       type: [String, Array],
-      default: 'lists image media table textcolor wordcount link hr searchreplace preview fullscreen print code'
+      default: 'lists image media table textcolor wordcount link hr searchreplace preview fullscreen code'
     },
     toolbar: {
       type: [String, Array],
@@ -77,13 +76,15 @@ export default {
       init: {
         placeholder: "在这里输入文字",
         language: 'zh_CN',
-        content_style: 'body { font-family:微软雅黑; font-size:12pt }',
+        content_style: 'body { font-family: 宋体; font-size: 12pt} p {margin: 0px; border:0px ; padding: 0px;}',
+        object_resizing: true, //禁用表格内联样式拖拽拉伸
+        table_resize_bars: true,//禁用表格单元格拖拽拉伸
+
         protect: [
           /\<\/?(if|endif)\>/g, //<if> & </endif>
           /\<xsl\:[^>]+\>/g, //<xsl:...>
           /<\?php.*?\?>/g, //php代码
         ], 
-        // font_css: '../../../public/tinymce/fonts/fonts.css',
         font_css: '../../../public/tinymce/fonts/fonts.css',
         height: this.height,
         plugins: this.plugins,
