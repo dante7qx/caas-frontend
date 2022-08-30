@@ -20,6 +20,7 @@ import 'tinymce/skins/ui/oxide/content.inline.min.css'
 import '../../../public/tinymce/langs/zh_CN.js'
 // 插件
 import 'tinymce/plugins/image'  // 插入上传图片插件
+// import 'tinymce/plugins/imagetools'
 import 'tinymce/plugins/media'  // 插入视频插件
 import 'tinymce/plugins/table'  // 插入表格插件
 import 'tinymce/plugins/link' //超链接插件
@@ -53,6 +54,14 @@ export default {
       type: Boolean,
       default: false
     },
+    minHeight: {
+      type: Number,
+      default: 200
+    },
+    maxHeight: {
+      type: Number,
+      default: 650
+    },
     plugins: {
       type: [String, Array],
       default: 'lists image media table textcolor wordcount link hr searchreplace autoresize preview fullscreen code'
@@ -65,14 +74,6 @@ export default {
       type: [String, Boolean],
       default: 'file edit insert view format table tools'
       // default: false
-    },
-    minHeight: {
-      type: Number,
-      default: 200
-    },
-    maxHeight: {
-      type: Number,
-      default: 650
     }
   },
   data() {
