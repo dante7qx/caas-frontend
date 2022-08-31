@@ -7,7 +7,7 @@
       <el-form ref="xForm" :model="form">
         <el-form-item prop="name" :label-width="formLabelWidth" @click.native="reset">
           <span slot="label"><el-link type="danger">活动名称</el-link></span>
-          <el-input v-model="form.name" auto-complete="off" maxlength="10" show-word-limit></el-input>
+          <el-input v-model="form.name" auto-complete="off" placeholder="Form-Item Slot 自定义label内容" maxlength="10" show-word-limit></el-input>
         </el-form-item>
         <el-form-item label="活动区域" :label-width="formLabelWidth">
           <el-select v-model="form.region" placeholder="请选择活动区域">
