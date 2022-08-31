@@ -44,6 +44,7 @@
         <el-menu-item index="/jsenc">非对称加、解密</el-menu-item>
         <el-menu-item index="/tinymce">TinyMCE富文本</el-menu-item>
         <el-menu-item index="/timer">倒计时</el-menu-item>
+        <el-menu-item index="/txmap">腾讯地图</el-menu-item>
       </el-submenu>
       
     </el-menu>

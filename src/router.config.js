@@ -22,6 +22,8 @@ import JSEncrypt from './components/third/JSEncrypt'
 import Tinymce from './components/third/Tinymce'
 import TimerHook from './components/third/TimerHook'
 
+import TencentMap from './components/third/map/Tencent'
+
 // 定义路由
 export default {
 	routes: [
@@ -47,5 +49,6 @@ export default {
     { path: "/jsenc", component: JSEncrypt },
     { path: "/tinymce", component: Tinymce },
     { path: "/timer", component: TimerHook },
+    { path: "/txmap", component: TencentMap },
 	]
 }
