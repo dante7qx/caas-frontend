@@ -12,7 +12,7 @@
     <!--
     <img src="../../../public/test.png" width="200" height="200">
     -->
-    <tinymce-editor ref="editor" v-model="content" :minHeight="400" :menubar="false" :disabled="disabled"/>
+    <tinymce-editor ref="editor" v-model="content" :minHeight="400" :disabled="disabled"/>
   </div>
 </template>
 

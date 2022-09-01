@@ -67,7 +67,7 @@ export default {
       default: 'lists image media table textcolor wordcount link hr searchreplace autoresize preview fullscreen code'
     },
     toolbar: {
-      type: [String, Array],
+      type: [String, Array, Boolean],
       default: 'styleselect | bold italic underline strikethrough fontselect fontsizeselect forecolor backcolor | alignleft aligncenter alignright alignjustify | hr bullist numlist outdent indent blockquote subscript superscript | removeformat undo redo | image media link openlink table | searchreplace preview fullscreen code'
     },
     menubar: {
@@ -96,12 +96,12 @@ export default {
         max_height: this.maxHeight,
         autoresize_bottom_margin: 50,
         plugins: this.plugins,
-        toolbar: this.toolbar,
+        menubar: this.disabled ? false : this.menubar,
+        toolbar: this.disabled ? false : this.toolbar,
         // fontsize_formats: '12px 14px 16px 18px 20px 22px 24px 26px 36px 48px 56px', // 工具栏自定义字体大小选项
         font_formats: "宋体='宋体';黑体='黑体';仿宋='仿宋';楷体='楷体';隶书='隶书';微软雅黑='微软雅黑';Andale Mono=andale mono,times;Arial=arial,helvetica,sans-serif;Arial Black=arial black,avant garde;Book Antiqua=book antiqua,palatino;Comic Sans MS=comic sans ms,sans-serif;Courier New=courier new,courier;Georgia=georgia,palatino;Helvetica=helvetica;Impact=impact,chicago;Symbol=symbol;Tahoma=tahoma,arial,helvetica,sans-serif;Terminal=terminal,monaco;Times New Roman=times new roman,times;Trebuchet MS=trebuchet ms,geneva;Verdana=verdana,geneva;Webdings=webdings;Wingdings=wingdings",
-        menubar: this.menubar,
         branding: false,
-        resize: true,
+        resize: false,
         default_link_target: '_blank',
         file_picker_types: "file media",
         //此处为图片上传处理函数，这个直接用了base64的图片形式上传图片，

@@ -21,7 +21,8 @@ import WaterBottom from './components/third/WaterBottom'
 import JSEncrypt from './components/third/JSEncrypt'
 import Tinymce from './components/third/Tinymce'
 import TimerHook from './components/third/TimerHook'
-
+import Crontab from './components/third/crontab'
+import RightToolbar from './components/third/RightToolbar'
 import TencentMap from './components/third/map/Tencent'
 
 // 定义路由
