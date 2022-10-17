@@ -14,11 +14,12 @@
       <el-menu-item index="/container">Container</el-menu-item>
       <el-submenu index="3">
         <template slot="title">表单</template>
-        <el-menu-item index="/dynacomponent">动态组件</el-menu-item>
+        <el-menu-item index="/dynaaddform">动态添加</el-menu-item>
         <el-menu-item index="/button">按钮</el-menu-item>
         <el-menu-item index="/date">日期控件</el-menu-item>
         <el-menu-item index="/upload">上传</el-menu-item>
         <el-menu-item index="/cascade">级联选择</el-menu-item>
+        <el-menu-item index="/dynacomponent">动态组件</el-menu-item>
         <el-submenu index="2-4">
           <template slot="title">窗口</template>
           <el-menu-item index="/dialog">对话框</el-menu-item>
@@ -46,6 +47,8 @@
         <el-menu-item index="/timer">倒计时</el-menu-item>
         <el-menu-item index="/crontab">cron 表达式</el-menu-item>
         <el-menu-item index="/txmap">腾讯地图</el-menu-item>
+        <el-menu-item index="/treechart">图形树</el-menu-item>
+        <el-menu-item index="/excelpreview">Excel预览</el-menu-item>
       </el-submenu>
       
     </el-menu>

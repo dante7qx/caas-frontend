@@ -53,11 +53,11 @@
 				<el-table-column prop="num3" label="数值3" header-align="center" align="center"/>
 				<el-table-column prop="email" label="邮箱" header-align="center"/>
 				<el-table-column fixed="right" label="操作" width="100" header-align="center" align="center">
-						<template slot-scope="scope">
-								<el-button type="text" plain size="small" icon="el-icon-edit"></el-button>
-								<el-button type="text" plain size="small" icon="el-icon-delete" @click.native.prevent="delRow(scope.$index, datas)"></el-button>
-						</template>
-				</el-table-column>
+					<template slot-scope="scope">
+							<el-button type="text" plain size="small" icon="el-icon-edit"></el-button>
+							<el-button type="text" plain size="small" icon="el-icon-delete" @click.native.prevent="delRow(scope.$index, datas)"></el-button>
+					</template>
+			  </el-table-column>
       </el-table>
       <div class="page">
         <el-pagination

@@ -82,7 +82,7 @@ export default {
       init: {
         placeholder: "在这里输入文字",
         language: 'zh_CN',
-        content_style: 'body { font-family: 宋体; font-size: 12pt} p {margin: 0px; border:0px ; padding: 0px;}',
+        content_style: 'body { font-family: 宋体; font-size: 12pt} p {margin: 0px; border: 0px ; padding: 1px;}',
         object_resizing: true, //禁用表格内联样式拖拽拉伸
         table_resize_bars: true,//禁用表格单元格拖拽拉伸
 
