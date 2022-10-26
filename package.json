@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@tinymce/tinymce-vue": "^3.2.8",
+    "@videojs/http-streaming": "^2.15.0",
     "element-ui": "^2.15.7",
     "jsencrypt": "^3.2.1",
     "luckyexcel": "^1.0.1",
@@ -21,6 +22,8 @@
     "tinymce": "^5.10.5",
     "uuid": "^3.3.2",
     "vcrontab": "^0.3.5",
+    "video.js": "^7.20.3",
+    "videojs-contrib-hls": "^5.15.0",
     "vue": "^2.6.14",
     "vue-awesome-countdown": "^1.1.4",
     "vue-document-editor": "^1.2.7",

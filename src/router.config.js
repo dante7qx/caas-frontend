@@ -26,6 +26,7 @@ import Crontab from './components/third/crontab'
 import TencentMap from './components/third/map/Tencent'
 import TreeChart from './components/third/TreeChart'
 import ExcelPreview from './components/third/ExcelPreview'
+import VideoPage from './components/third/video'
 
 // 定义路由
 export default {
@@ -57,5 +58,6 @@ export default {
     { path: "/txmap", component: TencentMap },
     { path: "/treechart", component: TreeChart },
     { path: "/excelpreview", component: ExcelPreview },
+    { path: "/video", component: VideoPage },
 	]
 }
