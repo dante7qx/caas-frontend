@@ -19,6 +19,7 @@ import 'tinymce/skins/ui/oxide/skin.min.css'
 import 'tinymce/skins/ui/oxide/content.inline.min.css'
 import '../../../public/tinymce/langs/zh_CN.js'
 // 插件
+import '../../../public/tinymce/plugins/layout.js'
 import 'tinymce/plugins/image'  // 插入上传图片插件
 // import 'tinymce/plugins/imagetools'
 import 'tinymce/plugins/media'  // 插入视频插件
@@ -64,11 +65,11 @@ export default {
     },
     plugins: {
       type: [String, Array],
-      default: 'lists image media table textcolor wordcount link hr searchreplace autoresize preview fullscreen code'
+      default: 'lists image media table textcolor wordcount link hr searchreplace autoresize preview fullscreen code layout'
     },
     toolbar: {
       type: [String, Array, Boolean],
-      default: 'styleselect | bold italic underline strikethrough fontselect fontsizeselect forecolor backcolor | alignleft aligncenter alignright alignjustify | hr bullist numlist outdent indent blockquote subscript superscript | removeformat undo redo | image media link table | searchreplace preview fullscreen code'
+      default: 'styleselect | bold italic underline strikethrough fontselect fontsizeselect forecolor backcolor | alignleft aligncenter alignright alignjustify | hr bullist numlist outdent indent blockquote subscript superscript | layout removeformat undo redo | image media link table | searchreplace preview fullscreen code'
     },
     menubar: {
       type: [String, Boolean],

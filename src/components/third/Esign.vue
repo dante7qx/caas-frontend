@@ -10,6 +10,7 @@
     </div>
 	</div>
 </template>
+
 <script>
 import vueEsign from 'vue-esign'
 import { nanoid } from 'nanoid'
