@@ -50,6 +50,7 @@
         <el-menu-item index="/treechart">图形树</el-menu-item>
         <el-menu-item index="/excelpreview">Excel预览</el-menu-item>
         <el-menu-item index="/video">视频播放</el-menu-item>
+        <el-menu-item index="/qrcode">二维码</el-menu-item>
       </el-submenu>
       
     </el-menu>

@@ -28,6 +28,7 @@
     "vue-awesome-countdown": "^1.1.4",
     "vue-document-editor": "^1.2.7",
     "vue-esign": "^1.1.0",
+    "vue-qr": "^3.2.4",
     "vue-randomcolor": "^1.0.4",
     "vue-router": "^3.0.1",
     "vue-tree-chart": "^1.2.9",

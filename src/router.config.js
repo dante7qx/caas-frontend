@@ -27,6 +27,7 @@ import TencentMap from './components/third/map/Tencent'
 import TreeChart from './components/third/TreeChart'
 import ExcelPreview from './components/third/ExcelPreview'
 import VideoPage from './components/third/video'
+import QrCode from './components/third/QrCode'
 
 // 定义路由
 export default {
@@ -59,5 +60,6 @@ export default {
     { path: "/treechart", component: TreeChart },
     { path: "/excelpreview", component: ExcelPreview },
     { path: "/video", component: VideoPage },
+    { path: "/qrcode", component: QrCode },
 	]
 }

@@ -65,7 +65,7 @@ export default {
     },
     plugins: {
       type: [String, Array],
-      default: 'lists image media table textcolor wordcount link hr searchreplace autoresize preview fullscreen code layout'
+      default: 'lists image media table textcolor wordcount link hr searchreplace autoresize preview fullscreen code layout powerpaste'
     },
     toolbar: {
       type: [String, Array, Boolean],
@@ -106,6 +106,13 @@ export default {
         branding: false,
         resize: true,
         default_link_target: '_blank',
+        external_plugins: {
+          powerpaste: '../../../public/tinymce/plugins/powerpaste/plugin.min.js',
+        },
+        powerpaste_word_import: 'propmt', // 参数可以是propmt, merge, clear，效果自行切换对比
+        powerpaste_html_import: 'propmt', // propmt, merge, clear
+        powerpaste_allow_local_images: true,
+        paste_data_images: true, // 是否允许黏贴图片
         file_picker_types: "file image media",
         //此处为图片上传处理函数，这个直接用了base64的图片形式上传图片，
         //如需ajax上传可参考https://www.tiny.cloud/docs/configure/file-image-upload/#images_upload_handler
