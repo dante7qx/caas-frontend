@@ -29,6 +29,8 @@ import ExcelPreview from './components/third/ExcelPreview'
 import VideoPage from './components/third/video'
 import QrCode from './components/third/QrCode'
 
+import ChatGPT from './components/ai/chatgpt'
+
 // 定义路由
 export default {
 	routes: [
@@ -61,5 +63,7 @@ export default {
     { path: "/excelpreview", component: ExcelPreview },
     { path: "/video", component: VideoPage },
     { path: "/qrcode", component: QrCode },
+
+    { path: "/chatgpt", component: ChatGPT}
 	]
 }
