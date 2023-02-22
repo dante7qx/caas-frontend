@@ -12,7 +12,7 @@
   "dependencies": {
     "@tinymce/tinymce-vue": "^3.2.8",
     "@videojs/http-streaming": "^2.15.0",
-    "element-ui": "^2.15.7",
+    "element-ui": "^2.15.13",
     "jsencrypt": "^3.2.1",
     "luckyexcel": "^1.0.1",
     "mathjs": "^4.0.0",
