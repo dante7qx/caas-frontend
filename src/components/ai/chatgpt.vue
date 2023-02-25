@@ -64,7 +64,7 @@ export default {
   name: 'ChatGptPage',
   data() {
     return {
-      API_KEY: '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',
+      API_KEY: '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',
       tab: {
         text: '文 字',
         image: '图 片'
@@ -122,6 +122,7 @@ export default {
       }
       this.loadingImage = true
       this.postData(url, data).then(res => {
+        console.log(res)
         const urlList = res.data.map(item => item.url)
         this.imgList.push({
           id: res.created,
