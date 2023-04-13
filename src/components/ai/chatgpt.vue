@@ -64,7 +64,7 @@ export default {
   name: 'ChatGptPage',
   data() {
     return {
-      API_KEY: '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',
+      API_KEY: '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',
       tab: {
         text: '文 字',
         image: '图 片'

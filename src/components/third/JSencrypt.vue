@@ -11,11 +11,11 @@
 			<el-form-item label="原文">
 				<el-input v-model="form.txt" type="input"></el-input>
 			</el-form-item>
-			<el-divider><i class="el-icon-mobile-phone"><el-button type="danger" size="mini" plain @click="encrypt"> 加密</el-button></i></el-divider>
+			<el-divider><i class="el-icon-mobile-phone"><el-button type="danger" size="mini" plain @click="encrypt2"> 加密</el-button></i></el-divider>
 			<el-form-item label="密文">
-				<span>{{ form.encryptTxt }}</span>
+				<textarea style="width:99%; height: 70px;">{{ form.encryptTxt }}</textarea>
 			</el-form-item>
-			<el-divider><i class="el-icon-bell"><el-button type="success" size="mini" plain @click="decrypt"> 解密</el-button></i></el-divider>
+			<el-divider><i class="el-icon-bell"><el-button type="success" size="mini" plain @click="decrypt2"> 解密</el-button></i></el-divider>
 			<el-form-item label="解密">
 				<span>{{ form.decryptTxt }}</span>
 			</el-form-item>
@@ -23,6 +23,7 @@
 	</div>
 </template>
 <script>
+import forge from 'node-forge'
 import JSEncrypt from 'jsencrypt/bin/jsencrypt.min'
 
 export default {
@@ -49,6 +50,28 @@ export default {
 			encryptor.setPrivateKey(this.form.privateKey) // 设置私钥
 			console.log(this.form.encryptTxt)
 			this.form.decryptTxt = encryptor.decrypt(this.form.encryptTxt) // 对数据进行解密
+		},
+
+
+		// 加密 node-forge
+		encrypt2() {
+			const publicKey = forge.pki.publicKeyFromPem(`-----BEGIN PUBLIC KEY-----${this.form.publicKey}-----END PUBLIC KEY-----`)
+			const encodeTxt = forge.util.encodeUtf8(this.form.txt)
+			const encrypted = publicKey.encrypt(encodeTxt, 'RSA-OAEP', {
+				md: forge.md.sha256.create(),
+				mgf: forge.mgf.mgf1.create(forge.md.sha1.create()),
+			})
+			this.form.encryptTxt = forge.util.encode64(encrypted)
+		},
+		// 解密 node-forge
+		decrypt2() {
+			const privateKey = forge.pki.privateKeyFromPem(`-----BEGIN PRIVATE KEY-----${this.form.privateKey}-----END PRIVATE KEY-----`);
+			const encodeTxt = forge.util.decode64(forge.util.decodeUtf8(this.form.encryptTxt));
+			const decrypted = privateKey.decrypt(encodeTxt, 'RSA-OAEP', {
+				md: forge.md.sha256.create(),
+				mgf: forge.mgf.mgf1.create(forge.md.sha1.create()),
+			})
+			this.form.decryptTxt = decrypted
 		},
 		cancel() {
 			this.form = {};
