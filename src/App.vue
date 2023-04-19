@@ -47,6 +47,7 @@
         <el-menu-item index="/timer">倒计时</el-menu-item>
         <el-menu-item index="/crontab">cron 表达式</el-menu-item>
         <el-menu-item index="/txmap">腾讯地图</el-menu-item>
+        <el-menu-item index="/gdmap">高德地图</el-menu-item>
         <el-menu-item index="/treechart">图形树</el-menu-item>
         <el-menu-item index="/excelpreview">Excel预览</el-menu-item>
         <el-menu-item index="/video">视频播放</el-menu-item>

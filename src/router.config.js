@@ -28,8 +28,9 @@ import TreeChart from './components/third/TreeChart'
 import ExcelPreview from './components/third/ExcelPreview'
 import VideoPage from './components/third/video'
 import QrCode from './components/third/QrCode'
-
 import ChatGPT from './components/ai/chatgpt'
+import GDMap from './components/third/map/gd/MapContainer'
+
 
 // 定义路由
 export default {
@@ -63,7 +64,7 @@ export default {
     { path: "/excelpreview", component: ExcelPreview },
     { path: "/video", component: VideoPage },
     { path: "/qrcode", component: QrCode },
-
-    { path: "/chatgpt", component: ChatGPT}
+    { path: "/chatgpt", component: ChatGPT},
+    { path: "/gdmap", component: GDMap },
 	]
 }

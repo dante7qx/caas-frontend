@@ -10,6 +10,7 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
+    "@amap/amap-jsapi-loader": "^1.0.1",
     "@tinymce/tinymce-vue": "^3.2.8",
     "@videojs/http-streaming": "^2.15.0",
     "element-ui": "^2.15.13",

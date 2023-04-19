@@ -79,4 +79,9 @@ export default {
 		text-align: right;
 		margin-top: 10px;
 	}
-	</style>
+</style>
+<style>
+.qqmap-text-logo {
+  display: none;
+}
+</style>
