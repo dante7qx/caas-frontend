@@ -30,6 +30,7 @@ import VideoPage from './components/third/video'
 import QrCode from './components/third/QrCode'
 import ChatGPT from './components/ai/chatgpt'
 import GDMap from './components/third/map/gd/MapContainer'
+import SpeakTTS from './components/third/SpeakTTS'
 
 
 // 定义路由
@@ -66,5 +67,6 @@ export default {
     { path: "/qrcode", component: QrCode },
     { path: "/chatgpt", component: ChatGPT},
     { path: "/gdmap", component: GDMap },
+    { path: "/speaktts", component: SpeakTTS },
 	]
 }

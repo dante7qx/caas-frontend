@@ -8,12 +8,24 @@
 <script>
 import info from '../assets/info.txt'
 
+
 export default {
 	data() {
 		return {
 			info,
 			ipPosition: {}
 		}
+	},
+	created() {
+		// 字符串压缩、解压
+		const LZString = require("lz-string")
+		var string ='eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImNhMTY1YzNlLTgzN2UtNDcyNS1hOWMyLTJhNDI4NTU0YTQzNCJ9.mRdjUwZyicT-CluBXyaW-fS_G2Q5eJ1QTBaWw9hes1jxyALkEiXb8GP-1kKqThdBwBnL584BOWhB9k1RfBzZ7Q';
+		console.log("样本大小为：" + string.length); //参考：字符长度 20000
+		var compressed = LZString.compress(string);
+		console.log(compressed)
+		console.log("压缩样本的大小为：" + compressed.length); //参考：压缩后字符长度 9800
+		string = LZString.decompress(compressed);
+		console.log("Sample is：" + string);
 	},
 	mounted() {
 		this.ipPosition = JSON.parse(localStorage.getItem('UserIPPosition'))

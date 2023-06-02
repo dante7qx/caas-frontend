@@ -23,7 +23,7 @@
 	</div>
 </template>
 <script>
-import forge from 'node-forge'
+// import forge from 'node-forge'
 import JSEncrypt from 'jsencrypt/bin/jsencrypt.min'
 
 export default {
