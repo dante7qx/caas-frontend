@@ -51,8 +51,12 @@
         <el-menu-item index="/treechart">图形树</el-menu-item>
         <el-menu-item index="/excelpreview">Excel预览</el-menu-item>
         <el-menu-item index="/video">视频播放</el-menu-item>
+        <el-menu-item index="/camera">视频监控</el-menu-item>
         <el-menu-item index="/qrcode">二维码</el-menu-item>
         <el-menu-item index="/speaktts">语音播报</el-menu-item>
+        <el-menu-item index="/latex">LaTeX公式</el-menu-item>
+        <el-menu-item index="/diffhtml">对比Html</el-menu-item>
+        <el-menu-item index="/doceditor">公文编辑器</el-menu-item>
       </el-submenu>
       <el-submenu index="6">
         <template slot="title">AI</template>

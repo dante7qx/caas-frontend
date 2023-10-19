@@ -12,9 +12,9 @@
         <el-button size="mini" plain @click="toggleSelection()">取消多选</el-button>
       </div>
 			<right-toolbar />
-      <el-table 
+      <el-table
         ref="tableList"
-        :data="datas" 
+        :data="datas"
         row-key="id"
         :stripe="table.stripe"
         :border="table.border"
@@ -31,21 +31,21 @@
 				<el-table-column type="selection" width="55" header-align="center" align="center"/>
 				<el-table-column type="index" width="40" header-align="center" align="center"/>
 				<el-table-column prop="name" label="姓名" width="100" header-align="center" :show-overflow-tooltip="true"/>
-				<el-table-column 
-					prop="age" 
-					label="年龄" 
-					width="100" 
-					header-align="center" 
-					align="center" 
+				<el-table-column
+					prop="age"
+					label="年龄"
+					width="100"
+					header-align="center"
+					align="center"
 					:sortable="true"
 					:filters="filter.age"
 					:filter-method="filterHandler"/>
 				<el-table-column label="地址信息" header-align="center">
 					<el-table-column prop="city" label="城市" width="70" header-align="center" align="center"/>
 					<el-table-column prop="zip" label="邮政编码" width="100" header-align="center">
-							<template slot-scope="scope">
-									<el-input v-model="scope.row.zip" placeholder="请输入内容" ></el-input>
-							</template>
+						<template slot-scope="scope">
+							<el-input v-model="scope.row.zip" placeholder="请输入内容" ></el-input>
+						</template>
 					</el-table-column>
         </el-table-column>
 				<el-table-column prop="num1" label="数值1" header-align="center" align="center"/>
@@ -54,23 +54,23 @@
 				<el-table-column prop="email" label="邮箱" header-align="center"/>
 				<el-table-column fixed="right" label="操作" width="100" header-align="center" align="center">
 					<template slot-scope="scope">
-							<el-button type="text" plain size="small" icon="el-icon-edit"></el-button>
-							<el-button type="text" plain size="small" icon="el-icon-delete" @click.native.prevent="delRow(scope.$index, datas)"></el-button>
+						<el-button type="text" plain size="small" icon="el-icon-edit"></el-button>
+						<el-button type="text" plain size="small" icon="el-icon-delete" @click.native.prevent="delRow(scope.$index, datas)"></el-button>
 					</template>
 			  </el-table-column>
       </el-table>
       <div class="page">
         <el-pagination
-            background
-            layout="prev, pager, next"
-            :total="100">
+					background
+					layout="prev, pager, next"
+					:total="100">
         </el-pagination>
       </div>
   </div>
 </template>
 
 <script>
-import math from 'mathjs';
+import { add, round } from 'mathjs'
 import RightToolbar from '../components/third/RightToolbar.vue'
 
 export default {
@@ -88,7 +88,7 @@ export default {
 						id: 1, name: "但丁12345678901234567890", age: 33, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
 						num1: 32.22, num2: 43.22, num3: 876
 				},
-				{   
+				{
 						id: 2, name: "但丁2", age: 32, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
 						num1: 32.22, num2: 43.22, num3: 876
 				},
@@ -183,18 +183,18 @@ export default {
                   sums[index] = values.reduce((prev, cur) => {
                       const value = Number(cur);
                       if(!isNaN(value)) {
-                         return math.round(math.add(prev, cur), 2);
+                         return round(add(prev, cur), 2);
                       } else {
                           return prev;
                       }
                   });
-                  if(index == 1) {
+                  if(index === 1) {
                     sums[index] += "岁";
                   } else {
                     sums[index] += "元";
                   }
-                  
-                  
+
+
               } else {
                   sums[index] = "";
               }

@@ -31,7 +31,7 @@ export default {
 		this.ipPosition = JSON.parse(localStorage.getItem('UserIPPosition'))
 	},
 	methods: {
-		getUserIP(onNewIP) {}
+		getUserIP(onNewIP) {},
 	}
 }
 </script>

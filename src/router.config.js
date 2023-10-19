@@ -27,11 +27,14 @@ import TencentMap from './components/third/map/Tencent'
 import TreeChart from './components/third/TreeChart'
 import ExcelPreview from './components/third/ExcelPreview'
 import VideoPage from './components/third/video'
+import CameraMonitor from './components/camera/monitor'
 import QrCode from './components/third/QrCode'
 import ChatGPT from './components/ai/chatgpt'
 import GDMap from './components/third/map/gd/MapContainer'
 import SpeakTTS from './components/third/SpeakTTS'
-
+import LaTeX from './components/third/LaTeX'
+import DiffHtml from './components/third/diffhtml'
+import DocEditor from './components/third/DocEditor'
 
 // 定义路由
 export default {
@@ -64,9 +67,13 @@ export default {
     { path: "/treechart", component: TreeChart },
     { path: "/excelpreview", component: ExcelPreview },
     { path: "/video", component: VideoPage },
+    { path: "/camera", component: CameraMonitor },
     { path: "/qrcode", component: QrCode },
     { path: "/chatgpt", component: ChatGPT},
     { path: "/gdmap", component: GDMap },
     { path: "/speaktts", component: SpeakTTS },
+    { path: "/latex", component: LaTeX },
+    { path: "/diffhtml", component: DiffHtml },
+    { path: "/doceditor", component: DocEditor },
 	]
 }

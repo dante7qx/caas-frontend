@@ -86,23 +86,23 @@ export default {
   },
   methods: { 
     handleNodeClick(data, node, vnode) {
-        console.log(data, node, vnode)
+      console.log(data, node, vnode)
     },
     getCheckedNodes() {
-        this.clickShow = this.$refs.xTree.getCheckedNodes();
+      this.clickShow = this.$refs.xTree.getCheckedNodes();
     },
     getCheckedKeys() {
       this.clickShow = this.$refs.xTree.getCheckedKeys();
     },
     setCheckedNodes() {
-        this.$refs.xTree.setCheckedNodes(
-          [{
-              id: 5,
-              label: '二级 2-1'
-          }, {
-              id: 9,
-              label: '三级 1-1-1'
-          }]);
+      this.$refs.xTree.setCheckedNodes(
+        [{
+          id: 5,
+          label: '二级 2-1'
+        }, {
+          id: 9,
+          label: '三级 1-1-1'
+        }]);
     },
     setCheckedKeys() {
       this.$refs.xTree.setCheckedKeys([3, 5]);

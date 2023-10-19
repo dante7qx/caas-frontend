@@ -1,6 +1,7 @@
 var path = require('path')
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
 	entry: './src/main.js',
@@ -77,7 +78,10 @@ module.exports = {
 		new HtmlWebpackPlugin({
 				template: './index.html',
 				favicon: './favicon.ico'
-		})
+		}),
+		new CopyPlugin([
+			{ from: "node_modules/@o2oa/doceditor/editor/public", to: "doceditor/public" }
+		])
 	]
 }
 
