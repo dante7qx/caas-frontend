@@ -108,7 +108,7 @@ export default {
         resize: true,
         default_link_target: '_blank',
         external_plugins: {
-          powerpaste: '../../../public/tinymce/plugins/powerpaste/plugin.min.js',
+          powerpaste: '/tinymce/plugins/powerpaste/plugin.min.js',
         },
         powerpaste_word_import: 'propmt', // 参数可以是propmt, merge, clear，效果自行切换对比
         powerpaste_html_import: 'propmt', // propmt, merge, clear
