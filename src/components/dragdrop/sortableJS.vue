@@ -3,14 +3,15 @@
 <template>
   <div class="app-container">
     <h2 style="text-align: center;">SortableJS 拖拽示例 - http://sortablejs.github.io/Sortable</h2>
-    <el-row :gutter="20" align="top" style="height: 700px; overflow: auto;">
+    <el-row :gutter="20" align="top">
       <el-col :span="8">
         <div style="border: 1px #ebeef4 solid; height: 850px; overflow: auto;">
           <pre style="margin-top: 0"><code class="hljs" v-html="resultJson"></code></pre>
         </div>
       </el-col>
+      <el-col :span="10" class="box-col">
       <draggable v-model="subjects" ghost-class="ghost" @end="endDrag">
-        <el-col :span="10" v-for="(item, index) in subjects" :key="index">
+        <el-col  v-for="(item, index) in subjects" :key="index">
           <el-card shadow="hover" class="box-card">
             <div slot="header" class="box-header">
               <span>{{ (index + 1) + '. ' }}</span>
@@ -51,6 +52,7 @@
           </el-card>
         </el-col>
       </draggable>
+      </el-col>
     </el-row>
   </div>
 </template>
@@ -124,6 +126,10 @@ export default {
 </script>
 
 <style scoped>
+.box-col {
+  height: 850px;
+  overflow: auto;
+}
 .box-card {
   margin-top: 0;
   cursor: pointer;
