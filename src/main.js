@@ -2,13 +2,14 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-import 'video.js/dist/video-js.css'  
+import 'video.js/dist/video-js.css'
 import { v4 as uuidv4 } from 'uuid'
 import moment from 'moment'
 import VueRandomColor from 'vue-randomcolor'
 import vueAwesomeCountdown from 'vue-awesome-countdown'
 import App from './App.vue'
 import VueRouterConfig from './router.config'
+import MathJax, { initMathJax, renderByMathjax } from "mathjax-vue";
 
 moment.locale('zh-cn');
 
@@ -16,10 +17,17 @@ moment.locale('zh-cn');
 Vue.prototype.uuid = uuidv4
 Vue.prototype.$moment = moment
 
+// 公式MathJax
+function onMathJaxReady() {
+  renderByMathjax(document.getElementById("latexPage"));
+}
+initMathJax({}, onMathJaxReady);
+
 Vue.use(VueRouter)
 Vue.use(ElementUI)
 Vue.use(VueRandomColor)
 Vue.use(vueAwesomeCountdown, 'vac')
+Vue.use(MathJax)
 
 // 创建路由实例
 const routerConfig = new VueRouter(VueRouterConfig)

@@ -22,13 +22,9 @@ export default {
     }
   },
   created() {
-    
+
   },
   mounted() {
-    // let script = document.createElement('script');
-    // script.type = 'text/javascript';
-    // script.src = '../../../public/js/jsmpeg.min.js';
-    // document.body.appendChild(script);
     loadJs('../../../public/js/jsmpeg.min.js').then(()=>{
       console.log('加载成功，进行后续操作')
       const url = 'ws://127.0.0.1:3000/stream/live/15d275b0-7618-3e9b-ac89-355acbbfeb8e'

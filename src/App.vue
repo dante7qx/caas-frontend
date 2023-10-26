@@ -59,8 +59,12 @@
         <el-menu-item index="/doceditor">公文编辑器</el-menu-item>
       </el-submenu>
       <el-submenu index="6">
-        <template slot="title">AI</template>
+        <template slot="title">机器学习</template>
         <el-menu-item index="/chatgpt">ChatGpt</el-menu-item>
+      </el-submenu>
+      <el-submenu index="7">
+        <template slot="title">拖拽相关</template>
+        <el-menu-item index="/sortablejs">SortableJS</el-menu-item>
       </el-submenu>
     </el-menu>
     <!--
@@ -70,7 +74,7 @@
     -->
     <router-view class="main"></router-view>
   </div>
-  
+
 </template>
 
 <script>
@@ -81,7 +85,7 @@ export default {
       msg: '欢迎来到CaaS 前端演示',
       activeIndex: '1',
       activeIndex2: '/home'
-      
+
     }
   },
   methods: {
@@ -112,7 +116,7 @@ export default {
   .dialog-footer {
     text-align: right;
   }
-.el-form .el-form-item__content .el-input.is-disabled .el-input__inner {
+  .el-form .el-form-item__content .el-input.is-disabled .el-input__inner {
     border: 0;
     background-color:white;
     color: #606266;

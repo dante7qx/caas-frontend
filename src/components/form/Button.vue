@@ -51,14 +51,20 @@
       <i class="el-icon-upload"></i>
       <i class="el-icon-loading"></i>
     </div>
+    <div>
+      <h3>Radio 单选框</h3>
+      <el-radio v-model="radio" :label="1">选项1</el-radio>
+      <el-radio v-model="radio" :label="2">选项2</el-radio>
+    </div>
   </div>
 </template>
 <script>
 export default {
   data() {
     return {
-        icoButton: '图标按钮',
-        enable: true
+      icoButton: '图标按钮',
+      enable: true,
+      radio: 1
     }
   }
 }

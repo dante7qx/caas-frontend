@@ -36,6 +36,8 @@ import LaTeX from './components/third/LaTeX'
 import DiffHtml from './components/third/diffhtml'
 import DocEditor from './components/third/DocEditor'
 
+import SortableJS from './components/dragdrop/sortableJS'
+
 // 定义路由
 export default {
 	routes: [
@@ -75,5 +77,6 @@ export default {
     { path: "/latex", component: LaTeX },
     { path: "/diffhtml", component: DiffHtml },
     { path: "/doceditor", component: DocEditor },
+    { path: "/sortablejs", component: SortableJS },
 	]
 }

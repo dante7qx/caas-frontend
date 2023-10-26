@@ -21,6 +21,7 @@
         style="width: 100%; margin-bottom: 20px;"
         :max-height="tableHeight"
         :highlight-current-row="true"
+        :highlight-selection-row="true"
         tooltip-effect="dark"
         :show-summary="table.showSummary"
         :summary-method="getSummaries"
@@ -85,44 +86,44 @@ export default {
 			},
 			datas: [
 				{
-						id: 1, name: "但丁12345678901234567890", age: 33, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
-						num1: 32.22, num2: 43.22, num3: 876
+          id: 1, name: "但丁12345678901234567890", age: 33, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
+          num1: 32.22, num2: 43.22, num3: 876
 				},
 				{
-						id: 2, name: "但丁2", age: 32, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
-						num1: 32.22, num2: 43.22, num3: 876
+          id: 2, name: "但丁2", age: 32, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
+          num1: 32.22, num2: 43.22, num3: 876
 				},
 				{
-						id: 3, name: "但丁3", age: 31, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
-						num1: 32.22, num2: 43.22, num3: 876
+          id: 3, name: "但丁3", age: 31, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
+          num1: 32.22, num2: 43.22, num3: 876
 				},
 				{
-						id: 4, name: "但丁4", age: 30, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
-						num1: 32.22, num2: 43.22, num3: 876
+          id: 4, name: "但丁4", age: 30, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
+          num1: 32.22, num2: 43.22, num3: 876
 				},
 				{
-						id: 6, name: "但丁5", age: 29, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
-						num1: 32.22, num2: 43.22, num3: 876
+          id: 6, name: "但丁5", age: 29, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
+          num1: 32.22, num2: 43.22, num3: 876
 				},
 				{
-						id: 7, name: "但丁6", age: 28, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
-						num1: 32.22, num2: 43.22, num3: 876
+          id: 7, name: "但丁6", age: 28, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
+          num1: 32.22, num2: 43.22, num3: 876
 				},
 				{
-						id: 8, name: "但丁7", age: 27, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
-						num1: 32.22, num2: 43.22, num3: 876
+          id: 8, name: "但丁7", age: 27, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
+          num1: 32.22, num2: 43.22, num3: 876
 				},
 				{
-						id: 9, name: "但丁8", age: 26, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
-						num1: 32.22, num2: 43.22, num3: 876
+          id: 9, name: "但丁8", age: 26, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
+          num1: 32.22, num2: 43.22, num3: 876
 				},
 				{
-						id: 10, name: "但丁9", age: 25, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
-						num1: 32.22, num2: 43.22, num3: 876
+          id: 10, name: "但丁9", age: 25, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
+          num1: 32.22, num2: 43.22, num3: 876
 				},
 				{
-						id: 11, name: "但丁10", age: 24, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
-						num1: 32.22, num2: 43.22, num3: 876
+          id: 11, name: "但丁10", age: 24, email: "ch.sun@haihangyun.com", city: "北京", zip: "10013",
+          num1: 32.22, num2: 43.22, num3: 876
 				}
 			],
 			filter: {
@@ -131,76 +132,74 @@ export default {
 		}
   },
   computed: {
-      tableHeight() {
-          return this.table.height + (this.datas.length / 4 * 60);
-      }
+    tableHeight() {
+      return this.table.height + (this.datas.length / 4 * 60);
+    }
   },
   methods: {
-      common() {
-        this.table.stripe = false;
-        this.table.border = false;
-      },
-      rowClick(row, event, column) {
-          console.log(row)
-          console.log(event)
-          console.log(column)
+    common() {
+      this.table.stripe = false;
+      this.table.border = false;
+    },
+    rowClick(row, event, column) {
+      console.log(row)
+      console.log(event)
+      console.log(column)
+      this.$refs.tableList.toggleRowSelection(row);
+    },
+    delRow(index, datas) {
+      datas.splice(index, 1)
+    },
+    selectRow(row) {
+      this.$refs.tableList.setCurrentRow(row);
+    },
+    toggleSelection(rows) {
+      if(rows) {
+        rows.forEach(row => {
           this.$refs.tableList.toggleRowSelection(row);
-      },
-      delRow(index, datas) {
-          datas.splice(index, 1)
-      },
-      selectRow(row) {
-          this.$refs.tableList.setCurrentRow(row);
-      },
-      toggleSelection(rows) {
-          if(rows) {
-              rows.forEach(row => {
-                this.$refs.tableList.toggleRowSelection(row);
-              })
-          } else {
-              this.$refs.tableList.clearSelection();
-          }
-      },
-      sortChange({column, prop, order}) {
-          console.log(`排序字段 ${prop}，排序顺序 ${order}`)
-      },
-      filterHandler(value, row, column) {
-          const property = column['property'];
-          return row[property] === value;
-      },
-      getSummaries(param) {
-          const {columns, data} = param;
-          const sums = [];
-          columns.forEach((column, index) => {
-              if(index === 0) {
-                  sums[index] = '总价';
-                  return;
-              }
-              // 将每列的内容转化为数值类型
-              const values = data.map(item => Number(item[column.property]));
-              // 列内容不得含有非数值类型
-              if(!values.every(v => isNaN(v))) {
-                  sums[index] = values.reduce((prev, cur) => {
-                      const value = Number(cur);
-                      if(!isNaN(value)) {
-                         return round(add(prev, cur), 2);
-                      } else {
-                          return prev;
-                      }
-                  });
-                  if(index === 1) {
-                    sums[index] += "岁";
-                  } else {
-                    sums[index] += "元";
-                  }
-
-
-              } else {
-                  sums[index] = "";
-              }
-          });
-          return sums;
+        })
+      } else {
+        this.$refs.tableList.clearSelection();
       }
+    },
+    sortChange({column, prop, order}) {
+      console.log(`排序字段 ${prop}，排序顺序 ${order}`)
+    },
+    filterHandler(value, row, column) {
+      const property = column['property'];
+      return row[property] === value;
+    },
+    getSummaries(param) {
+      const {columns, data} = param;
+      const sums = [];
+      columns.forEach((column, index) => {
+        if(index === 0) {
+          sums[index] = '总价';
+          return;
+        }
+        // 将每列的内容转化为数值类型
+        const values = data.map(item => Number(item[column.property]));
+        // 列内容不得含有非数值类型
+        if(!values.every(v => isNaN(v))) {
+          sums[index] = values.reduce((prev, cur) => {
+            const value = Number(cur);
+            if(!isNaN(value)) {
+             return round(add(prev, cur), 2);
+            } else {
+              return prev;
+            }
+          });
+            if(index === 1) {
+              sums[index] += "岁";
+            } else {
+              sums[index] += "元";
+            }
+        } else {
+          sums[index] = "";
+        }
+      });
+      return sums;
+    }
   }
 }
 </script>

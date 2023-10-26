@@ -81,6 +81,7 @@ export default {
 		return {
 			//初始化配置
       init: {
+        deprecation_warnings: false,
         placeholder: "在这里输入文字",
         language: 'zh_CN',
         content_style: 'body { font-family: STSong; font-size: 12pt} p {margin: 0px; border: 0px ; padding: 2px;}',
@@ -91,7 +92,7 @@ export default {
           /\<\/?(if|endif)\>/g, //<if> & </endif>
           /\<xsl\:[^>]+\>/g, //<xsl:...>
           /<\?php.*?\?>/g, //php代码
-        ], 
+        ],
         // font_css: '../../../public/tinymce/fonts/fonts.css',
         min_height: this.minHeight,
         max_height: this.maxHeight,
@@ -152,7 +153,7 @@ export default {
             callback('movie.mp4', { source2: 'alt.ogg', poster: 'image.jpg' });
           }
         },
-        
+
       },
       myValue: this.value
 		}
