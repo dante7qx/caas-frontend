@@ -1,5 +1,5 @@
 <template>
-  <div id="table">
+  <div>
       <h2>表格演示</h2>
       <div style="margin: 10px;">
         <el-button type="success" size="mini" @click="common" :autofocus="true">普通</el-button>
@@ -16,10 +16,10 @@
         ref="tableList"
         :data="datas"
         row-key="id"
+        :max-height="tableHeight"
         :stripe="table.stripe"
         :border="table.border"
         style="width: 100%; margin-bottom: 20px;"
-        :max-height="tableHeight"
         :highlight-current-row="true"
         :highlight-selection-row="true"
         tooltip-effect="dark"
@@ -44,7 +44,7 @@
 				<el-table-column label="地址信息" header-align="center">
 					<el-table-column prop="city" label="城市" width="70" header-align="center" align="center"/>
 					<el-table-column prop="zip" label="邮政编码" width="100" header-align="center">
-						<template slot-scope="scope">
+						<template v-slot="scope">
 							<el-input v-model="scope.row.zip" placeholder="请输入内容" ></el-input>
 						</template>
 					</el-table-column>
@@ -54,12 +54,13 @@
 				<el-table-column prop="num3" label="数值3" header-align="center" align="center"/>
 				<el-table-column prop="email" label="邮箱" header-align="center"/>
 				<el-table-column fixed="right" label="操作" width="100" header-align="center" align="center">
-					<template slot-scope="scope">
+					<template v-slot="scope">
 						<el-button type="text" plain size="small" icon="el-icon-edit"></el-button>
 						<el-button type="text" plain size="small" icon="el-icon-delete" @click.native.prevent="delRow(scope.$index, datas)"></el-button>
 					</template>
 			  </el-table-column>
       </el-table>
+
       <div class="page">
         <el-pagination
 					background
@@ -67,14 +68,16 @@
 					:total="100">
         </el-pagination>
       </div>
+
   </div>
 </template>
 
 <script>
 import { add, round } from 'mathjs'
-import RightToolbar from '../components/third/RightToolbar.vue'
+import RightToolbar from '@/components/elui/RightToolbar.vue'
 
 export default {
+  name: "TablePage",
 	components: { RightToolbar },
   data() {
 		return {

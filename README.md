@@ -15,23 +15,6 @@ npm run dev
 npm run build
 ```
 
-1. 安装项目依赖
+## WebPack5搭建Vue2
 
-    ``` bash
-    cnpm install -D url-loader
-    cnpm install -S element-ui
-    ```
-2. 配置webpack
-
-    ``` javascript
-    {
-        test: /\.(eot|ttf|woff|woff2|svgz)(\?.+)?$/,
-        use: [{
-            loader: 'url-loader',
-            options: {
-                limit: 10000
-            }
-        }]
-    }
-
-    ```
+参考：使用Webpack5创建Vue2项目及优化

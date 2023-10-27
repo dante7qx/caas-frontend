@@ -1,42 +1,22 @@
 const path = require('path');
 const chalk = require("chalk");
-const { VueLoaderPlugin } = require('vue-loader')
+const { VueLoaderPlugin } = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin');
 const ProgressBarPlugin = require("progress-bar-webpack-plugin");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const port = 8080
+const port = 8080;
 
 module.exports = env => {
   return {
-    mode: "development", // 或 "production"，根据需要选择
+    mode: "development", // development 或 production，根据需要选择
+    devtool: 'source-map',
     entry: path.resolve(__dirname,'./src/main.js'),
     output: {
       path: path.resolve(__dirname, './dist'),
       filename: 'build.js',
-      clean: true, //每次构建清除dist包
-      // publicPath: './public',
+      // clean: true, //每次构建清除dist包
     },
-    plugins: [
-      new VueLoaderPlugin(),
-      new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, './public/index.html'),
-        filename: 'index.html',
-        favicon: './public/favicon.ico'
-      }),
-      new CopyPlugin({
-        patterns:[{
-          from: "node_modules/@o2oa/doceditor/editor/public",
-          to: "doceditor/public"
-        }]
-      }),
-      // 进度条
-      new ProgressBarPlugin({
-        format: `  :msg [:bar] ${chalk.green.bold(":percent")} (:elapsed s)`,
-      }),
-      // 打包体积分析
-      // new BundleAnalyzerPlugin()
-    ],
     module: {
       rules: [
         {
@@ -94,8 +74,29 @@ module.exports = env => {
     },
     resolve: {
       alias: { '@': path.resolve(__dirname,'./src') },
-      extensions: ['*', '.js', '.vue', '.json']
+      extensions: ['.js', '.css', '.vue', '.json', '.txt']
     },
+    plugins: [
+      new VueLoaderPlugin(),
+      new HtmlWebpackPlugin({
+        template: path.resolve(__dirname, './public/index.html'),
+        filename: 'index.html',
+        favicon: './public/favicon.ico'
+      }),
+      new CopyPlugin({
+        patterns:[{
+          from: "node_modules/@o2oa/doceditor/editor/public",
+          to: "doceditor/public"
+        }]
+      }),
+      // 进度条
+      new ProgressBarPlugin({
+        // format: `  :msg [:bar] :percent (:elapsed s)`,
+        format: `  :msg ${chalk.yellowBright.bold("[:bar]")} ${chalk.green.bold(":percent")} (:elapsed s)`,
+      }),
+      // 打包体积分析
+      // new BundleAnalyzerPlugin()
+    ],
     devServer: {
       host: '0.0.0.0',
       port: port,

@@ -48,6 +48,7 @@ export default {
       });
     },
     clearWaterMark() {
+      clearInterval(this.timer)
       watermark.remove();
     }
   }

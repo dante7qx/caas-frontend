@@ -22,7 +22,7 @@
         <el-button type="info" @click="cancelVoice">取消</el-button>
       </div>
     </el-form>
-    
+
     <h2 style="text-align: center">语音识别</h2>
     <el-button type="primary" @click="startSpeak">说话</el-button>
     <el-button type="danger" @click="stopSpeak">停止</el-button>
@@ -35,7 +35,7 @@
 <script>
 const synth = window.speechSynthesis;
 const msg = new SpeechSynthesisUtterance();
-const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+let recognition = null
 export default {
   data() {
     return {
@@ -44,11 +44,14 @@ export default {
         voice: '',
         txt: '',
         rTxt: ''
-      }, 
+      },
     };
   },
   created() {
-    this.options = synth.getVoices()
+    if('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+      recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+      this.options = synth.getVoices()
+    }
   },
   methods: {
     /*********************************************** 语音播报 ***********************************************************/
@@ -90,7 +93,7 @@ export default {
         // const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
 
         // Configure the recognition settings
-        // recognition.lang = 'en-US'; 
+        // recognition.lang = 'en-US';
         recognition.lang = 'zh-CN';
 
         // Start recognition when the user speaks
@@ -125,6 +128,6 @@ export default {
 </script>
 
 /**
-  参考： 
+  参考：
   语音播报 https://blog.51cto.com/u_7883830/5015290
 */

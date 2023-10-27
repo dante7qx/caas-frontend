@@ -60,7 +60,7 @@
   </div>
 </template>
 <script>
-  import Detail from './detail'
+  import Detail from './detail.vue'
   export default {
     components: {
       "table-detail": Detail

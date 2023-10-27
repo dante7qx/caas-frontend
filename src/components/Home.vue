@@ -1,12 +1,12 @@
 <template>
   <div id="home">
-		<h1>欢迎来到 CaaS 容器云</h1>
+		<h1>欢迎来到精灵Spirit</h1>
 		<div class="IPClass">{{ ipPosition.province + ' - ' + ipPosition.city + ' - ' + ipPosition.ip}}</div>
 		<div v-html="info"></div>
   </div>
 </template>
 <script>
-import info from '../assets/info.txt'
+import info from '@/assets/info.txt'
 
 export default {
 	data() {
