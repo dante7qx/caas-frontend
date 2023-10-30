@@ -10,70 +10,97 @@
         </div>
       </el-col>
       <el-col :span="10" class="box-col">
-      <draggable v-model="subjects" ghost-class="ghost" @end="endDrag">
-        <el-col  v-for="(item, index) in subjects" :key="index">
-          <el-card shadow="hover" class="box-card">
-            <div slot="header" class="box-header">
-              <span>{{ (index + 1) + '. ' }}</span>
-              <el-input v-model="item.subject" placeholder="请输入题目" class="box-subject" v-if="design"></el-input>
-              <span v-else>{{ item.subject }}</span>
-              <el-tag effect="plain" size="small" class="box-grade">{{ item.grade + '分' }}</el-tag>
-            </div>
-            <draggable v-model="item.opts" ghost-class="ghost" @end="endDrag" v-if="item.type === 'radio'">
-              <div v-for="(opt, idx) in item.opts" :key="idx" class="box-item">
-                <div v-if="design">
-                  <el-radio :label="opt.answer" >
-                    <span :style="opt.answer === 1 ? 'background-color: #42b983; color: #fff;' : ''">{{ optDict[idx] + '.' }}</span>
-                  </el-radio>
-                  <el-input v-model="opt.text" placeholder="请输入选项" class="box-radio"></el-input>
-                </div>
-                <div v-else>
-                  <el-radio v-model="item.answer" :label="opt.index">{{ optDict[idx] + '. ' + opt.text }}</el-radio>
-                </div>
+        <draggable v-model="subjects" ghost-class="ghost" @end="endDrag">
+          <el-col  v-for="(item, index) in subjects" :key="index">
+            <el-card shadow="hover" class="box-card" >
+              <div slot="header" class="box-header">
+                <span>{{ (index + 1) + '. ' }}</span>
+                <el-input v-model="item.subject" placeholder="请输入题目" class="box-subject" v-if="design"></el-input>
+                <span v-else>{{ item.subject }}</span>
+                <i class="el-icon-setting box-setting-btn" @click="setSubject(item)"></i>
+                <el-tag effect="plain" size="small" class="box-grade">{{ item.grade + '分' }}</el-tag>
               </div>
-            </draggable>
-            <draggable v-model="item.opts" ghost-class="ghost" @end="endDrag" v-else-if="item.type === 'checkbox'">
-              <div v-for="(opt, idx) in item.opts" :key="idx" class="box-item">
-                <div v-if="design">
-                    <el-checkbox :label="opt.answer" :style="opt.answer === 1 ? 'color: forestgreen;' : ''">
+              <draggable v-model="item.opts" ghost-class="ghost" @end="endDrag" v-if="item.type === 'radio'">
+                <div v-for="(opt, idx) in item.opts" :key="idx" class="box-item">
+                  <div v-if="design">
+                    <el-radio :label="opt.answer" >
                       <span :style="opt.answer === 1 ? 'background-color: #42b983; color: #fff;' : ''">{{ optDict[idx] + '.' }}</span>
-                    </el-checkbox>
-                    <el-input v-model="opt.text" placeholder="请输入选项" class="box-checkbox"></el-input>
+                    </el-radio>
+                    <el-input v-model="opt.text" placeholder="请输入选项" class="box-radio"></el-input>
+                  </div>
+                  <div v-else>
+                    <el-radio v-model="item.answer" :label="opt.index">{{ optDict[idx] + '. ' + opt.text }}</el-radio>
+                  </div>
                 </div>
-                <div v-else>
-                  <el-checkbox-group v-model="item.answer">
-                    <el-checkbox v-model="item.answer" :label="opt.index">{{ optDict[idx] + '. ' + opt.text}}</el-checkbox>
-                  </el-checkbox-group>
+              </draggable>
+              <draggable v-model="item.opts" ghost-class="ghost" @end="endDrag" v-else-if="item.type === 'checkbox'">
+                <div v-for="(opt, idx) in item.opts" :key="idx" class="box-item">
+                  <div v-if="design">
+                      <el-checkbox :label="opt.answer" :style="opt.answer === 1 ? 'color: forestgreen;' : ''">
+                        <span :style="opt.answer === 1 ? 'background-color: #42b983; color: #fff;' : ''">{{ optDict[idx] + '.' }}</span>
+                      </el-checkbox>
+                      <el-input v-model="opt.text" placeholder="请输入选项" class="box-checkbox"></el-input>
+                  </div>
+                  <div v-else>
+                    <el-checkbox-group v-model="item.answer">
+                      <el-checkbox v-model="item.answer" :label="opt.index">{{ optDict[idx] + '. ' + opt.text}}</el-checkbox>
+                    </el-checkbox-group>
+                  </div>
                 </div>
+              </draggable>
+              <draggable v-model="item.opts" ghost-class="ghost" @end="endDrag" v-else-if="item.type === 'tf'">
+                <div v-for="(opt, idx) in item.opts" :key="idx" class="box-item">
+                  <div v-if="design">
+                    <el-radio :label="opt.answer">
+                      <span :style="opt.answer === 1 ? 'background-color: #42b983; color: #fff;' : ''">{{ optDict[idx] + '.' }}</span>
+                    </el-radio>
+                    <span class="box-tf">{{ opt.text }}</span>
+                  </div>
+                  <div v-else>
+                    <el-radio v-model="item.answer" :label="opt.index">{{ optDict[idx] + '.' }}</el-radio>
+                    <span class="box-tf">{{ opt.text }}</span>
+                  </div>
+                </div>
+              </draggable>
+              <el-input v-model="item.answer"
+                type="textarea"
+                :autosize="{ minRows: 3, maxRows: 5}"
+                resize="none"
+                show-word-limit
+                maxlength="500"
+                placeholder="请输入"
+                :readonly="design"
+                v-else-if="item.type === 'Q&A'"/>
+              <span v-else>暂不支持</span>
+            </el-card>
+          </el-col>
+        </draggable>
+      </el-col>
+      <el-col :span="6">
+        <el-tabs v-model="setType">
+          <el-tab-pane label="试卷设置" name="subject">试卷</el-tab-pane>
+          <el-tab-pane label="题目设置" name="option">
+            <el-form ref="form" :model="optionForm" label-width="80px">
+              <el-form-item label="题目分值">
+                <el-input v-model="optionForm.grade"></el-input>
+              </el-form-item>
+              <el-form-item label="正确答案">
+                <el-select v-model="optionForm.correct" placeholder="请选择">
+                  <el-option
+                    v-for="item in optionForm.opts"
+                    :key="item.index"
+                    :label="item.text"
+                    :value="item.answer">
+                  </el-option>
+                </el-select>
+              </el-form-item>
+              <div class="box-form-btn">
+                <el-button type="primary">确 定</el-button>
+                <el-button>取 消</el-button>
               </div>
-            </draggable>
-            <draggable v-model="item.opts" ghost-class="ghost" @end="endDrag" v-else-if="item.type === 'tf'">
-              <div v-for="(opt, idx) in item.opts" :key="idx" class="box-item">
-                <div v-if="design">
-                  <el-radio :label="opt.answer">
-                    <span :style="opt.answer === 1 ? 'background-color: #42b983; color: #fff;' : ''">{{ optDict[idx] + '.' }}</span>
-                  </el-radio>
-                  <span class="box-tf">{{ opt.text }}</span>
-                </div>
-                <div v-else>
-                  <el-radio v-model="item.answer" :label="opt.index">{{ optDict[idx] + '.' }}</el-radio>
-                  <span class="box-tf">{{ opt.text }}</span>
-                </div>
-              </div>
-            </draggable>
-            <el-input v-model="item.answer"
-              type="textarea"
-              :autosize="{ minRows: 3, maxRows: 5}"
-              resize="none"
-              show-word-limit
-              maxlength="500"
-              placeholder="请输入"
-              :readonly="design"
-              v-else-if="item.type === 'Q&A'"/>
-            <span v-else>暂不支持</span>
-          </el-card>
-        </el-col>
-      </draggable>
+            </el-form>
+          </el-tab-pane>
+        </el-tabs>
       </el-col>
     </el-row>
   </div>
@@ -87,6 +114,8 @@ import json from 'highlight.js/lib/languages/json'
 import "highlight.js/styles/nord.min.css"
 hljs.registerLanguage("json", json)
 
+const SET_OPTION = "option"
+
 export default {
   name: "sortableJS",
   components: {
@@ -95,7 +124,9 @@ export default {
   data() {
     return {
       design: true, // 设计阶段 true、答题阶段 false
+      setType: 'subject', // 设置种类（试卷、题目）
       optDict: { 0: 'A', 1: 'B', 2: 'C', 3: 'D' },
+      optionForm: {},
       subjects: [{
         type: 'radio',
         subject: '【单选】下面那个称呼是描述北斗七星中的一颗？',
@@ -155,6 +186,11 @@ export default {
   methods: {
     endDrag(e) {
       console.log('EndDrag', e);
+    },
+    // 题目设置
+    setSubject(subject) {
+      this.setType = SET_OPTION
+      this.optionForm = subject
     }
   }
 }
@@ -177,6 +213,11 @@ export default {
 .box-header {
   overflow: hidden;
 }
+.box-setting-btn {
+  margin-top: 10px;
+  margin-right: 5px;
+  float: right;
+}
 .box-subject {
   width: 96%;
   margin-left: 5px;
@@ -198,6 +239,9 @@ export default {
  }
 .box-tf {
   margin-left: -20px;
+}
+.box-form-btn {
+  text-align: center;
 }
 .el-card ::v-deep .el-card__header {
   padding-bottom: 10px;

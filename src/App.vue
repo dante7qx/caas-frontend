@@ -10,33 +10,36 @@
       active-text-color="#ffd04b"
       :router="true">
       <el-menu-item index="/home">首页</el-menu-item>
-      <el-menu-item index="/layout">Layout</el-menu-item>
-      <el-menu-item index="/container">Container</el-menu-item>
-      <el-submenu index="3">
-        <template slot="title">表单</template>
-        <el-menu-item index="/dynaaddform">动态添加</el-menu-item>
-        <el-menu-item index="/button">按钮</el-menu-item>
-        <el-menu-item index="/date">日期控件</el-menu-item>
-        <el-menu-item index="/upload">上传</el-menu-item>
-        <el-menu-item index="/cascade">级联选择</el-menu-item>
-        <el-menu-item index="/dynacomponent">动态组件</el-menu-item>
-        <el-submenu index="2-4">
-          <template slot="title">窗口</template>
-          <el-menu-item index="/dialog">对话框</el-menu-item>
-          <el-menu-item index="2-4-2">选项2</el-menu-item>
-          <el-menu-item index="2-4-3">选项3</el-menu-item>
+      <el-submenu index="00">
+        <template slot="title">ElementUI</template>
+        <el-menu-item index="/layout">Layout</el-menu-item>
+        <el-menu-item index="/container">Container</el-menu-item>
+        <el-submenu index="3">
+          <template slot="title">表单</template>
+          <el-menu-item index="/dynaaddform">动态添加</el-menu-item>
+          <el-menu-item index="/button">按钮</el-menu-item>
+          <el-menu-item index="/date">日期控件</el-menu-item>
+          <el-menu-item index="/upload">上传</el-menu-item>
+          <el-menu-item index="/cascade">级联选择</el-menu-item>
+          <el-menu-item index="/dynacomponent">动态组件</el-menu-item>
+          <el-submenu index="2-4">
+            <template slot="title">窗口</template>
+            <el-menu-item index="/dialog">对话框</el-menu-item>
+            <el-menu-item index="2-4-2">选项2</el-menu-item>
+            <el-menu-item index="2-4-3">选项3</el-menu-item>
+          </el-submenu>
         </el-submenu>
+        <el-submenu index="4">
+          <template slot="title">表格</template>
+          <el-menu-item index="/table">el-ui 表格</el-menu-item>
+          <el-menu-item index="/tableform">表格表单</el-menu-item>
+        </el-submenu>
+        <el-menu-item index="/tree">树</el-menu-item>
+        <el-menu-item index="/transfer">穿梭框</el-menu-item>
+        <el-menu-item index="/calendar">日历</el-menu-item>
+        <el-menu-item index="/otherwiget">其他ELementUI组件</el-menu-item>
+        <el-menu-item index="/smalltest">小功能测试</el-menu-item>
       </el-submenu>
-      <el-submenu index="4">
-        <template slot="title">表格</template>
-        <el-menu-item index="/table">el-ui 表格</el-menu-item>
-        <el-menu-item index="/tableform">表格表单</el-menu-item>
-      </el-submenu>
-      <el-menu-item index="/tree">树</el-menu-item>
-      <el-menu-item index="/transfer">穿梭框</el-menu-item>
-      <el-menu-item index="/calendar">日历</el-menu-item>
-      <el-menu-item index="/otherwiget">其他ELementUI组件</el-menu-item>
-      <el-menu-item index="/smalltest">小功能测试</el-menu-item>
       <el-submenu index="5">
         <template slot="title">第三方组件</template>
         <el-menu-item index="/esign">在线签名</el-menu-item>
@@ -66,6 +69,7 @@
         <template slot="title">拖拽相关</template>
         <el-menu-item index="/sortablejs">SortableJS</el-menu-item>
       </el-submenu>
+      <el-menu-item index="/echart">Echarts图表📈</el-menu-item>
     </el-menu>
     <!--
     <keep-alive>

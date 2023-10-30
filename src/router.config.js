@@ -35,10 +35,12 @@ import LaTeX from '@/components/third/LaTeX'
 import DiffHtml from '@/components/third/diffhtml'
 import DocEditor from '@/components/third/DocEditor'
 import SortableJS from '@/components/dragdrop/sortableJS'
+import EchartPage from "@/components/echart/index.vue"
 
 // 定义路由
 export default {
 	routes: [
+    { path: "/", component: GDMap },
     { path: "/home", component: Home },
     { path: "/layout", component: Layout },
     { path: "/container", component: Container },
@@ -76,5 +78,7 @@ export default {
     { path: "/diffhtml", component: DiffHtml },
     { path: "/doceditor", component: DocEditor },
     { path: "/sortablejs", component: SortableJS },
+    { path: "/echart", component: EchartPage },
+
 	]
 }

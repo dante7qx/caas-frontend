@@ -5,7 +5,7 @@
       :data="tableData"
       style="width: 100%">
       <el-table-column type="expand">
-        <template slot-scope="props">
+        <template v-slot="props">
           <el-form label-position="left" inline class="demo-table-expand">
             <el-form-item label="商品名称">
               <span>{{ props.row.name }}</span>
@@ -44,7 +44,7 @@
         header-align="center"
         align="center"
         width="100">
-        <template slot-scope="scope">
+        <template v-slot="scope">
           <el-button @click="handleDetail(scope.row, 0)" type="text" size="small">查看</el-button>
           <el-button type="text" size="small" @click="handleDetail(scope.row)">编辑</el-button>
         </template>

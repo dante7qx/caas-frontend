@@ -36,7 +36,8 @@ export default {
 </script>
 <style scoped>
 #home div {
-    text-align: center;
+  text-align: center;
+  padding-bottom: 10px;
 }
 .IPClass {
 	color: #27a8e1;

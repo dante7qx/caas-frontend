@@ -10,12 +10,13 @@ const port = 8080;
 module.exports = env => {
   return {
     mode: "development", // development 或 production，根据需要选择
-    devtool: 'source-map',
+    devtool: "cheap-module-eval-source-map",
+    stats: "errors-warnings",
+
     entry: path.resolve(__dirname,'./src/main.js'),
     output: {
       path: path.resolve(__dirname, './dist'),
-      filename: 'build.js',
-      // clean: true, //每次构建清除dist包
+      filename: 'build.js'
     },
     module: {
       rules: [

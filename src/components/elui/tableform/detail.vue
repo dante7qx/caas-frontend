@@ -4,11 +4,12 @@
 			<el-form-item label="名称">
 				<el-input v-model="form.name"></el-input>
 			</el-form-item>
-				<el-form-item label="店铺">
+      <el-form-item label="店铺">
 				<el-input v-model="form.shop"></el-input>
 			</el-form-item>
-			<el-form-item>
-				
+			<el-form-item label="单选">
+        <el-radio v-model="radio" label="1">备选项</el-radio>
+        <el-radio v-model="radio" label="2">备选项</el-radio>
 			</el-form-item>
 		</el-form>
 		<div slot="footer" class="dialog-footer">
@@ -29,7 +30,8 @@
 		},
 		data() {
 			return {
-				form: {}
+				form: {},
+        radio: '1'
 			}
 		},
 		created() {
@@ -48,6 +50,6 @@
 				this.$emit('closeWindow');
 			}
 		}
-	} 
+	}
 </script>
 
