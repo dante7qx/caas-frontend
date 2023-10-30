@@ -1,10 +1,7 @@
 def imageTag = "${env.BUILD_TIMESTAMP}"
-// def harbor = "harbor.xiaohehe.com"
-// def penv = "spiritprd"
 def harbor = ""
 def penv = "dante2012"
 def imgName = "x-frontend";
-// def image = "$harbor/$penv/$imgName:$imageTag"
 def image = "$penv/$imgName:$imageTag"
 node {
   stage('拉取源码') {
