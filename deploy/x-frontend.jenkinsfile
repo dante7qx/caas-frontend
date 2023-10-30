@@ -19,7 +19,7 @@ def imgName = "x-frontend";
 def image = "$penv/$imgName:$imageTag"
 node {
   stage('拉取源码') {
-    checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'dante-github', url: 'https://github.com/dante7qx/caas-frontend.git']]])
+    checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'dante-github', url: 'git@github.com:dante7qx/caas-frontend.git']]])
   }
   stage('NPM打包') {
     sh "npm install"
