@@ -9,17 +9,20 @@ def today()
     str = sdf.format(lastDate.getTime());
     return str;
 }
-def  imageTag = today()
-def harbor = "harbor.xiaohehe.com"
-def penv = "spiritprd"
+def imageTag = today()
+// def harbor = "harbor.xiaohehe.com"
+// def penv = "spiritprd"
+def harbor = ""
+def penv = "dante2012"
 def imgName = "x-frontend";
-def image = "$harbor/$penv/$imgName:$imageTag"
+// def image = "$harbor/$penv/$imgName:$imageTag"
+def image = "$penv/$imgName:$imageTag"
 node {
   stage('拉取源码') {
     checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'dante-github', url: 'https://github.com/dante7qx/caas-frontend.git']]])
   }
   stage('NPM打包') {
-    sh "cnpm install"
+    sh "npm install"
     sh "npm run build"
     sh "cp -Rf dist deploy/"
   }
@@ -34,13 +37,13 @@ node {
     }
   }
   stage('推送Harbor') {
-    withCredentials([usernamePassword(credentialsId: 'xiaohehe_harbor', passwordVariable: 'usrpwd', usernameVariable: 'usrname')]) {
+    withCredentials([usernamePassword(credentialsId: 'docker_hub', passwordVariable: 'usrpwd', usernameVariable: 'usrname')]) {
 	    sh "docker login $harbor -u ${usrname} -p ${usrpwd}"
    	 	sh "docker push $image"
 	  }
   }
   stage('清理空间') {
-    sh "docker rmi -f $image"
+    // sh "docker rmi -f $image"
     cleanWs notFailBuild: true
   }
 }
