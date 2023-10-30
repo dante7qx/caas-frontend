@@ -1,15 +1,4 @@
-import java.util.*;
-import java.text.SimpleDateFormat;
-def today()
-{
-    String str = "";
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
-    Calendar lastDate = Calendar.getInstance();
-    lastDate.add(Calendar.MINUTE, 2);
-    str = sdf.format(lastDate.getTime());
-    return str;
-}
-def imageTag = today()
+def imageTag = "${env.BUILD_TIMESTAMP}"
 // def harbor = "harbor.xiaohehe.com"
 // def penv = "spiritprd"
 def harbor = ""
