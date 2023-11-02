@@ -25,7 +25,7 @@ import Crontab from '@/components/third/crontab'
 import TencentMap from '@/components/third/map/Tencent'
 import TreeChart from '@/components/third/TreeChart'
 import ExcelPreview from '@/components/third/ExcelPreview'
-import VideoPage from '@/components/third/video'
+import VideoPage from '@/components/third/videoPage'
 import CameraMonitor from '@/components/camera/monitor'
 import QrCode from '@/components/third/QrCode'
 import ChatGPT from '@/components/ai/chatgpt'
@@ -35,6 +35,7 @@ import LaTeX from '@/components/third/LaTeX'
 import DiffHtml from '@/components/third/diffhtml'
 import DocEditor from '@/components/third/DocEditor'
 import SortableJS from '@/components/dragdrop/sortableJS'
+import Exam from "@/components/dragdrop/exam"
 import EchartPage from "@/components/echart/index.vue"
 
 // 定义路由
@@ -77,8 +78,8 @@ export default {
     { path: "/latex", component: LaTeX },
     { path: "/diffhtml", component: DiffHtml },
     { path: "/doceditor", component: DocEditor },
-    { path: "/sortablejs", component: SortableJS },
     { path: "/echart", component: EchartPage },
-
+    { path: "/sortablejs", component: SortableJS },
+    { path: "/exam", component: Exam },
 	]
 }

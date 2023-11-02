@@ -1,6 +1,6 @@
 <template>
   <div>
-    <video id="videoArea" style="width: 100%; height: 100%;" class="video-js vjs-default-skin" preload="auto">
+    <video id="videoArea" style="width: 100%;height: auto;" class="video-js vjs-default-skin" preload="auto">
       <source :src="src" type="application/x-mpegURL">
     </video>
   </div>
@@ -15,8 +15,18 @@ export default {
   name: "videoComponent",
   props: {
     videoSrc: {
-      type: String, // 
-      defalut: '',
+      type: String,
+      default: '',
+      required: true
+    },
+    autoplay: {
+      type: Boolean,
+      default: true,
+      required: false
+    },
+    controls: {
+      type: Boolean,
+      default: false,
       required: false
     }
   },
@@ -30,12 +40,24 @@ export default {
     this.init()
   },
   methods: {
-    init() {
+    init(delay) {
+      const that = this;
+      setTimeout(function() {
+        if(that.videoSrc !== '') {
+          that.initVideo();
+          return;
+        }
+        that.init(delay);
+      }, delay);
+    },
+    initVideo() {
+      this.src = this.videoSrc
       // 播放器初始化
+      const that = this
       this.$nextTick(() => {
-        console.log(this.videoSrc)
-        this.src = this.videoSrc
         this.player = videojs('videoArea' , {
+          autoplay: that.autoplay,
+          controls: that.controls,
           bigPlayButton: false,
           textTrackDisplay: false,
           posterImage: true,
@@ -44,8 +66,9 @@ export default {
           muted: true //静音模式 、、 解决首次页面加载播放。
         }, function () {
           // 自动播放
-          // setTimeout(() => this.play(), 1000)
-          this.play() 
+          if(that.autoplay) {
+            this.play()
+          }
         })
       })
     }

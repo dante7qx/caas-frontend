@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 style="text-align: center;">视频监控</h2>
+    <h2 style="text-align: center;">视频播放</h2>
     <div style="margin: 15px; border: 1px solid black;">
       <video-player :videoSrc="videoSrc"/>
     </div>
@@ -17,10 +17,11 @@ export default {
   },
   data() {
     return {
-      videoSrc: 'https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8'
+      videoSrc: ''
     }
   },
-  methods: {
+  mounted() {
+    this.videoSrc = 'https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8'
   }
 }
 </script>

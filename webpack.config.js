@@ -52,7 +52,7 @@ module.exports = env => {
           },
         },
         {
-          test: /\.(png|jpg|jpeg|gif|svg)$/,
+          test: /\.(png|jpg|jpeg|gif)$/,
           loader: 'file-loader',
           options: {
             name: '[name].[ext]?[hash]'
@@ -68,9 +68,29 @@ module.exports = env => {
           }]
         },
         {
+          test: /\.svg$/,
+          include: [path.resolve('./src/assets/icon/svg')],
+          use: [{
+            loader: 'svg-sprite-loader',
+            options: {
+              symbolId: 'icon-[name]'//去掉svg这个图片加载不出来
+            }
+          }, {
+            loader: 'svgo-loader',
+            options: {
+              plugins: [
+                {
+                  name: 'removeAttrs',
+                  params: { attrs: 'fill' },
+                },
+              ],
+            },
+          }]
+        },
+        {
           test: /\.txt$/,
           use: 'raw-loader'
-        }
+        },
       ]
     },
     resolve: {
