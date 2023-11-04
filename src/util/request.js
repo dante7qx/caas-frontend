@@ -62,12 +62,15 @@ const fetchClient = {
   },
   post(url, data) {
     const fullURL = baseURL + url;
-    return fetch(fullURL, {
+    const param = {
       method: 'POST',
       headers,
-      timeout: timeout,
-      body: JSON.stringify(data), // 将数据转换为 JSON 字符串
-    })
+      timeout: timeout
+    }
+    if(data != null) {
+      param['body'] = JSON.stringify(data) // 将数据转换为 JSON 字符串
+    }
+    return fetch(fullURL, param)
       .then(response => response.json())
       .catch(error => {
         console.error('Fetch POST Error:', error);

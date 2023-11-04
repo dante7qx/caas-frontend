@@ -34,9 +34,10 @@ import SpeakTTS from '@/components/third/SpeakTTS'
 import LaTeX from '@/components/third/LaTeX'
 import DiffHtml from '@/components/third/diffhtml'
 import DocEditor from '@/components/third/DocEditor'
-import SortableJS from '@/components/dragdrop/sortableJS'
+import DesignExam from '@/components/dragdrop/designExam'
 import Exam from "@/components/dragdrop/exam"
-import EchartPage from "@/components/echart/index.vue"
+import DesignQA from '@/components/dragdrop/designQA'
+import EchartPage from '@/components/echart/index'
 
 // 定义路由
 export default {
@@ -79,7 +80,8 @@ export default {
     { path: "/diffhtml", component: DiffHtml },
     { path: "/doceditor", component: DocEditor },
     { path: "/echart", component: EchartPage },
-    { path: "/sortablejs", component: SortableJS },
+    { path: "/designexam", component: DesignExam },
     { path: "/exam", component: Exam },
+    { path: "/designqa", component: DesignQA },
 	]
 }

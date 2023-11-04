@@ -19,7 +19,22 @@
               </draggable>
             </div>
           </el-collapse-item>
-          <el-collapse-item title="数据" name="code">
+          <el-collapse-item title="数据" name="data">
+            <div style="height: 850px; overflow: auto;">
+              <el-button type="primary" size="small" @click="addPaper">新 增</el-button>
+              <el-table ref="paperTable" :data="tableData" border highlight-current-row @row-click="switchSubject" style="margin-top: 10px; width: 100%">
+                <el-table-column type="index" align="center" width="50" />
+                <el-table-column prop="paperTitle" header-align="center" align="left" label="标题" />
+                <el-table-column prop="createTime" align="center" label="创建时间" width="150" v-if="false" />
+                <el-table-column fixed="right" align="center" label="操作" width="90">
+                  <template v-slot="scope">
+                    <el-button type="danger" size="mini" @click.native.stop="removePaper(scope.row.id, scope.$index)">移除</el-button>
+                  </template>
+                </el-table-column>
+              </el-table>
+            </div>
+          </el-collapse-item>
+          <el-collapse-item title="代码" name="code">
             <div style="border: 1px #ebeef4 solid; height: 850px; overflow: auto;">
               <pre style="margin-top: 0"><code class="hljs" v-html="resultJson"></code></pre>
             </div>
@@ -104,7 +119,7 @@
           </el-col>
         </draggable>
         <div style="text-align: center;" v-if="!design">
-          <el-button type="primary" @click="confirmSet" style="margin-top: 20px">交 卷</el-button>
+          <el-button type="primary" style="margin-top: 20px">交 卷</el-button>
         </div>
       </el-col>
       <el-col :span="6" v-if="design">
@@ -176,7 +191,7 @@
 </template>
 
 <script>
-import { getPaper, persist } from '@/api/survey'
+import {deletePaper, getPaper, listPaper, persist} from '@/api/survey'
 import draggable from 'vuedraggable'
 import hljs from 'highlight.js/lib/core'
 import json from 'highlight.js/lib/languages/json'
@@ -185,6 +200,7 @@ import "highlight.js/styles/nord.min.css"
 hljs.registerLanguage("json", json)
 
 const SET_OPTION = "option"
+const TYPE = "exam"
 
 export default {
   name: "sortableJS",
@@ -195,12 +211,14 @@ export default {
     id: {
       type: Number,
       required: false,
-      default: 2
+      default: 0
     },
   },
   data() {
     return {
       design: true, // 设计阶段 true、答题阶段 false
+      queryId: 0,
+      tableData: [],
       setType: 'subject', // 设置种类（试卷、题目）
       optDict: { 0: 'A', 1: 'B', 2: 'C', 3: 'D' },
       typeDict: {
@@ -219,6 +237,8 @@ export default {
         grade: null,
         correct: null
       },
+      // 当前选中行
+      currentClickRow: {},
       // 当前设置题目
       currentSubject: {},
       // 设计选题
@@ -280,20 +300,7 @@ export default {
         }
       ],
       // 问卷
-      paper: {
-        title: '',
-        totalScore: null,
-        passScore: null,
-        qaTime: null,
-        subjects: [{
-          type: 'radio',
-          subject: '从左边拖拽题目，拖拽后将此项删除',
-          grade: null,
-          opts: [],
-          correct: null,
-          answer: null
-        }]
-      }
+      paper: {}
       /*
       paper: {
         title: '世界百科知识问答',
@@ -357,6 +364,8 @@ export default {
     }
   },
   created() {
+    this.queryId = this.id
+    this.getList()
     this.getPaperInfo()
   },
   computed: {
@@ -378,22 +387,55 @@ export default {
     }
   },
   methods: {
+    initPaper() {
+      this.paper = {
+        title: '',
+        totalScore: null,
+        passScore: null,
+        qaTime: null,
+        subjects: [{
+          type: 'radio',
+          subject: '从左边拖拽题目，拖拽后将此项删除',
+          grade: null,
+          opts: [],
+          correct: null,
+          answer: null
+        }]
+      }
+    },
     endDrag(e) {
       console.log('EndDrag', e);
     },
     // 获取试题
+    getList() {
+      const param = { type: TYPE }
+      listPaper(param).then(data => {
+        this.tableData = data
+      }).catch(error => console.error(error));
+    },
+    switchSubject(row, column, event) {
+      this.currentClickRow = row
+      this.queryId = row.id
+      this.getPaperInfo()
+    },
     getPaperInfo() {
-      if(this.id > 0) {
-        getPaper(this.id).then(data => {
+      if(this.queryId > 0) {
+        getPaper(this.queryId).then(data => {
           this.paper = data['paperInfo']
           this.fillPaperForm(this.paper)
         }).catch(error => console.error(error));
+      } else {
+        this.initPaper();
       }
     },
     fillPaperForm(paper) {
       this.paperForm.totalScore = paper.totalScore
       this.paperForm.passScore = paper.passScore
       this.paperForm.qaTime = paper.qaTime
+    },
+    addPaper() {
+      this.queryId = 0
+      this.getPaperInfo()
     },
     // 试卷设置
     fillPaper(paperForm) {
@@ -406,9 +448,10 @@ export default {
     },
     submitPaper() {
       this.fillPaper(this.paperForm)
-      persist({ id: this.id, paperInfo: this.paper }).then((data) => {
+      persist({ id: this.queryId, type: TYPE, paperInfo: this.paper }).then((data) => {
         console.log(data);
         this.$message.success('发布成功！');
+        this.getList();
       }).catch(error => {
         console.error('Error:', error);
       });
@@ -429,6 +472,32 @@ export default {
     },
     delSubject(index) {
       this.paper['subjects'].splice(index, 1)
+    },
+    removePaper(id, index) {
+      this.$confirm('此操作将永久删除该试卷, 是否继续?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        deletePaper(id).then(resp => {
+          this.tableData.splice(index, 1);
+          if(this.tableData.length > 0) {
+            this.queryId = this.currentClickRow.id
+            this.getPaperInfo()
+          } else {
+            this.addPaper()
+          }
+        })
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: '已取消删除'
+        });
+      });
+    },
+    redirect() {
+      let routeUrl = this.$router.resolve({path: "/exam"});
+      window.open(routeUrl.href, '_blank');
     }
   }
 }

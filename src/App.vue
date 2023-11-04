@@ -67,8 +67,10 @@
       </el-submenu>
       <el-submenu index="7">
         <template slot="title">拖拽相关</template>
-        <el-menu-item index="/sortablejs">问卷设计</el-menu-item>
-        <el-menu-item index="/exam">考试试卷</el-menu-item>
+        <el-menu-item index="/designexam">考试设计</el-menu-item>
+        <el-menu-item index="/exam">考试现场</el-menu-item>
+        <el-menu-item index="/designqa">问卷设计</el-menu-item>
+        <el-menu-item index="/qaonline">在线问卷</el-menu-item>
       </el-submenu>
       <el-menu-item index="/echart">Echarts图表📈</el-menu-item>
     </el-menu>
