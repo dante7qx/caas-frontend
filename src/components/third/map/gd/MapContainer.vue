@@ -1,20 +1,20 @@
 <template>
   <div>
     <div id="gdContainer"></div>
-    <div id="myPageTop">
-    <table>
-        <tr>
-            <td>
+        <div id="myPageTop">
+          <table>
+            <tr>
+              <td>
                 <label>请输入关键字：</label>
-            </td>
-        </tr>
-        <tr>
-            <td>
+              </td>
+            </tr>
+            <tr>
+              <td>
                 <input id="tipinput" v-model="location"/>
-            </td>
-        </tr>
-    </table>
-</div>
+              </td>
+            </tr>
+          </table>
+      </div>
   </div>
 </template>
 
@@ -29,7 +29,7 @@ export default {
   data() {
     return {
       location: "",
-      lnglat: [], // 经纬度数组 [lng,lat] 
+      lnglat: [], // 经纬度数组 [lng,lat]
       markers: [],
     }
   },
@@ -54,10 +54,10 @@ export default {
       this.map = new AMap.Map("gdContainer", {  //设置地图容器id
         viewMode: "2D",    //是否为3D地图模式
         zoom: 13, // 初始化地图层级
-        center: [105.725268,34.576404], // 初始化地图中心
+        center: [105.780118, 34.573591], // 初始化地图中心
         resizeEnable: true
       }).on("complete", function(){
-        console.log("地图加载完成！ ");  
+        console.log("地图加载完成！ ");
       })
       // 鼠标点击获取经纬度
       .on("click", function(e) {
@@ -65,10 +65,10 @@ export default {
         that.setMarker(that.lnglat);
       });
       this.auto = new AMap.AutoComplete({
-        input: 'tipinput'  // 搜索框的id 
-      }); 
+        input: 'tipinput'  // 搜索框的id
+      });
       this.auto.on("select", this.selectSite);//注册监听，当选中某条记录时会触发
-      
+
       // 参考：https://lbs.amap.com/demo/javascript-api/example/poi-search/keywords-search
       this.placeSearch = new AMap.PlaceSearch({
         map: this.map,

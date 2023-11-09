@@ -37,7 +37,9 @@ import DocEditor from '@/components/third/DocEditor'
 import DesignExam from '@/components/dragdrop/designExam'
 import Exam from "@/components/dragdrop/exam"
 import DesignQA from '@/components/dragdrop/designQA'
+import QA from '@/components/dragdrop/qa'
 import EchartPage from '@/components/echart/index'
+
 
 // 定义路由
 export default {
@@ -83,5 +85,6 @@ export default {
     { path: "/designexam", component: DesignExam },
     { path: "/exam", component: Exam },
     { path: "/designqa", component: DesignQA },
+    { path: "/qaonline", component: QA },
 	]
 }

@@ -23,7 +23,19 @@
                 <el-table-column prop="createTime" align="center" label="创建时间" width="150" v-if="false" />
                 <el-table-column fixed="right" align="center" label="操作" width="90">
                   <template v-slot="scope">
-                    <el-button type="danger" size="mini" @click.native.stop="removePaper(scope.row.id, scope.$index)">移除</el-button>
+                    <el-dropdown>
+                      <span class="el-dropdown-link">
+                        <i class="el-icon-arrow-down el-icon--right"></i>
+                      </span>
+                      <el-dropdown-menu v-slot="dropdown">
+                        <el-dropdown-item>
+                          <span @click="redirect(scope.row.id)"><i slot="suffix" class="el-icon-view" />预览</span>
+                        </el-dropdown-item>
+                        <el-dropdown-item>
+                          <span @click="removePaper(scope.row.id, scope.$index)"><i slot="suffix" class="el-icon-delete" />删除</span>
+                        </el-dropdown-item>
+                      </el-dropdown-menu>
+                    </el-dropdown>
                   </template>
                 </el-table-column>
               </el-table>
@@ -71,9 +83,8 @@
                 <div v-for="(opt, idx) in item.opts" :key="idx" class="box-item">
                   <div>
                     <el-radio :label="opt.index">
-                      <span :style="opt.index === item.correct ? 'background-color: #42b983; color: #fff;' : ''">{{ optDict[idx] + '.' }}</span>
+                      <span :style="opt.index === item.correct ? 'background-color: #42b983; color: #fff;' : ''">{{ optDict[idx] + '. ' + opt.text }}</span>
                     </el-radio>
-                    <span class="box-tf">{{ opt.text }}</span>
                   </div>
                 </div>
               </draggable>
@@ -292,7 +303,6 @@ export default {
         console.log(data);
         this.getList();
         this.$message.success('发布成功！');
-
       }).catch(error => console.error(error));
     },
     // 题目设置
@@ -331,8 +341,13 @@ export default {
         });
       });
     },
-    redirect() {
-      let routeUrl = this.$router.resolve({path: "/qa"});
+    redirect(id) {
+      let routeUrl = this.$router.resolve({
+        path: "/qaonline",
+        query: {
+          qid: id
+        }
+      });
       window.open(routeUrl.href, '_blank');
     }
   }
@@ -352,17 +367,6 @@ export default {
   font-size: 14px;
   background-color: #f7f7f7;
   cursor: pointer;
-}
-.paper-title {
-  display: flex;
-  justify-content: center;
-  font-size: 24px;
-}
-.paper-sub-title {
-  margin-top: 20px;
-  display: flex;
-  justify-content: left;
-  font-size: 14px;
 }
 .box-col {
   height: 850px;
@@ -403,10 +407,8 @@ export default {
 .box-checkbox {
    width: 92%;
    margin-left: 10px;
- }
-.box-tf {
-  margin-left: -20px;
 }
+
 .box-form-btn {
   text-align: center;
 }

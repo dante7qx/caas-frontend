@@ -16,3 +16,15 @@ export function persist(data) {
 export function deletePaper(id) {
   return request.post('/survy/jpa/delete/' + id)
 }
+
+export function getUserPaper(paperId, userId) {
+  return request.post(`/survy/user_paper/${paperId}/${userId}`)
+}
+
+export function getUserPaperById(id) {
+  return request.post(`/survy/user_paper/${id}`)
+}
+
+export function persistUser(data) {
+  return request.post('/survy/persist_user', data)
+}
