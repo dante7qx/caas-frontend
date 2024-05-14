@@ -10,7 +10,7 @@
             <span class="paper-sub-title">{{ subTitle }}</span>
           </el-card>
         </el-col>
-        <el-col  v-for="(item, index) in paper.subjects" :key="index">
+        <el-col v-for="(item, index) in paper.subjects" :key="index">
           <el-form :disabled="puId > 0">
           <el-card shadow="hover" class="box-card" >
             <div slot="header" class="box-header">
@@ -72,7 +72,7 @@ export default {
     pid: {
       type: Number,
       required: false,
-      default: 1
+      default: 18
     }
   },
   data() {

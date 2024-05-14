@@ -212,4 +212,11 @@ export default {
   background-color: #ffffff;
   border: none;
 }
+*>>>.is-disabled.el-textarea .el-textarea__inner {
+  font-size: 14px;
+  font-weight: 400;
+  color: #000000;
+  background-color: #ffffff;
+  border: none;
+}
 </style>
