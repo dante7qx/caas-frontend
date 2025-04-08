@@ -73,6 +73,10 @@
         <el-menu-item index="/qaonline">在线问卷</el-menu-item>
       </el-submenu>
       <el-menu-item index="/echart">Echarts图表📈</el-menu-item>
+      <el-submenu index="8">
+        <template slot="title">数据抓取</template>
+        <el-menu-item index="/weather">天气信息</el-menu-item>
+      </el-submenu>
     </el-menu>
     <!--
     <keep-alive>

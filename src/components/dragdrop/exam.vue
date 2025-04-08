@@ -94,8 +94,8 @@ export default {
   created() {
     const paramId = this.$route.query && this.$route.query.pid;
     this.paperId = paramId ? paramId : this.pid;
-    this.puId = this.id
-    this.getInfo()
+    this.puId = this.id;
+    this.getInfo();
   },
   computed: {
     subTitle: function() {

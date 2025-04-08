@@ -39,6 +39,7 @@ import Exam from "@/components/dragdrop/exam"
 import DesignQA from '@/components/dragdrop/designQA'
 import QA from '@/components/dragdrop/qa'
 import EchartPage from '@/components/echart/index'
+import WeatherCrawler from "@/components/spider/WeatherCrawler";
 
 
 // 定义路由
@@ -86,5 +87,6 @@ export default {
     { path: "/exam", component: Exam },
     { path: "/designqa", component: DesignQA },
     { path: "/qaonline", component: QA },
+    { path: "/weather", component: WeatherCrawler },
 	]
 }

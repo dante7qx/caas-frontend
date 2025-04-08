@@ -238,7 +238,7 @@ export default {
         'tf': { text: '判断', class: 'radio' },
         'Q&A': { text: '问答', class: 'qa' }
       },
-      paperForm: {
+      paperForm: {  // 试卷
         totalScore: null,
         passScore: null,
         qaTime: null
