@@ -28,6 +28,7 @@ import ExcelPreview from '@/components/third/ExcelPreview'
 import VideoPage from '@/components/third/videoPage'
 import CameraMonitor from '@/components/camera/monitor'
 import QrCode from '@/components/third/QrCode'
+import TianaiCaptcha from '@/components/third/TianaiCaptcha'
 import ChatGPT from '@/components/ai/chatgpt'
 import GDMap from '@/components/third/map/gd/MapContainer'
 import SpeakTTS from '@/components/third/SpeakTTS'
@@ -40,7 +41,7 @@ import DesignQA from '@/components/dragdrop/designQA'
 import QA from '@/components/dragdrop/qa'
 import EchartPage from '@/components/echart/index'
 import WeatherCrawler from "@/components/spider/WeatherCrawler";
-
+import bpmnJsModeler from "@/components/third/bpmn/bpmnJs"
 
 // 定义路由
 export default {
@@ -76,6 +77,7 @@ export default {
     { path: "/video", component: VideoPage },
     { path: "/camera", component: CameraMonitor },
     { path: "/qrcode", component: QrCode },
+    { path: "/tianai", component: TianaiCaptcha },
     { path: "/chatgpt", component: ChatGPT},
     { path: "/gdmap", component: GDMap },
     { path: "/speaktts", component: SpeakTTS },
@@ -88,5 +90,7 @@ export default {
     { path: "/designqa", component: DesignQA },
     { path: "/qaonline", component: QA },
     { path: "/weather", component: WeatherCrawler },
+    { path: "/bpmnjs", component: bpmnJsModeler },
+
 	]
 }

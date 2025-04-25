@@ -46,20 +46,37 @@
         <el-menu-item index="/holidaypane">节假日面板</el-menu-item>
         <el-menu-item index="/waterbottom">页面水印</el-menu-item>
         <el-menu-item index="/jsenc">非对称加、解密</el-menu-item>
-        <el-menu-item index="/tinymce">TinyMCE富文本</el-menu-item>
+        <el-menu-item index="/diffhtml">对比Html</el-menu-item>
         <el-menu-item index="/timer">倒计时</el-menu-item>
         <el-menu-item index="/crontab">cron 表达式</el-menu-item>
-        <el-menu-item index="/txmap">腾讯地图</el-menu-item>
-        <el-menu-item index="/gdmap">高德地图</el-menu-item>
         <el-menu-item index="/treechart">图形树</el-menu-item>
         <el-menu-item index="/excelpreview">Excel预览</el-menu-item>
-        <el-menu-item index="/video">视频播放</el-menu-item>
-        <el-menu-item index="/camera">视频监控</el-menu-item>
-        <el-menu-item index="/qrcode">二维码</el-menu-item>
-        <el-menu-item index="/speaktts">语音播报</el-menu-item>
-        <el-menu-item index="/latex">LaTeX公式</el-menu-item>
-        <el-menu-item index="/diffhtml">对比Html</el-menu-item>
-        <el-menu-item index="/doceditor">公文编辑器</el-menu-item>
+        <el-submenu index="5-0">
+          <template slot="title">富文本</template>
+          <el-menu-item index="/tinymce">TinyMCE</el-menu-item>
+          <el-menu-item index="/doceditor">公文编辑器</el-menu-item>
+          <el-menu-item index="/latex">LaTeX公式</el-menu-item>
+        </el-submenu>
+        <el-submenu index="5-1">
+          <template slot="title">地图组件</template>
+          <el-menu-item index="/txmap">腾讯地图</el-menu-item>
+          <el-menu-item index="/gdmap">高德地图</el-menu-item>
+        </el-submenu>
+        <el-submenu index="5-2">
+          <template slot="title">影音相关</template>
+          <el-menu-item index="/video">视频播放</el-menu-item>
+          <el-menu-item index="/camera">视频监控</el-menu-item>
+          <el-menu-item index="/speaktts">语音播报</el-menu-item>
+        </el-submenu>
+        <el-submenu index="5-3">
+          <template slot="title">二维码相关</template>
+          <el-menu-item index="/qrcode">普通二维码</el-menu-item>
+          <el-menu-item index="/tianai">行为二维码</el-menu-item>
+        </el-submenu>
+        <el-submenu index="5-4">
+          <template slot="title">BPMN设计器</template>
+          <el-menu-item index="/bpmnjs">BpmnJs</el-menu-item>
+        </el-submenu>
       </el-submenu>
       <el-submenu index="6">
         <template slot="title">机器学习</template>

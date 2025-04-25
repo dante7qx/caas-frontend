@@ -42,6 +42,26 @@ module.exports = env => {
           ],
         },
         {
+          test: /\.s[ac]ss$/i,
+          use: [
+            'style-loader',
+            {
+              loader: 'css-loader',
+              options: { sourceMap: true }
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                implementation: require('sass'),
+                sourceMap: true,
+                sassOptions: {
+                  fiber: false,
+                },
+              },
+            },
+          ],
+        },
+        {
           test: /\.m?js$/,
           exclude: /(node_modules|bower_components)/,
           use: {
@@ -84,6 +104,30 @@ module.exports = env => {
                   params: { attrs: 'fill' },
                 },
               ],
+            },
+          }]
+        },
+        // 添加专门处理 bpmn-js 的 SVG 文件规则
+        {
+          test: /\.svg(\?.*)?$/,
+          include: [path.resolve('./node_modules/bpmn-js')],
+          use: [{
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+              fallback: 'file-loader',
+              name: 'fonts/[name].[hash:8].[ext]',
+            },
+          }]
+        },
+        // 添加一个通用的 SVG 规则作为后备
+        {
+          test: /\.svg(\?.*)?$/,
+          exclude: [path.resolve('./src/assets/icon/svg'), path.resolve('./node_modules/bpmn-js')],
+          use: [{
+            loader: 'file-loader',
+            options: {
+              name: 'images/[name].[hash:8].[ext]',
             },
           }]
         },
